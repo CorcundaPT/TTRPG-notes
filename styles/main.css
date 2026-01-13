@@ -1,0 +1,64 @@
+:root {
+  --light-background-color: rgb(255,255,255);
+  --light-box-color: rgba(25,25,25,0.2);
+  
+  --light-strength-color: rgb(255,150,150);
+  --light-dexterity-color: rgb(255,255,150);
+  --light-constitution-color: rgb(150,255,150);
+  --light-intelligence-color: rgb(150,255,255);
+  --light-wisdom-color: rgb(150,150,255);
+  --light-charisma-color: rgb(255,150,255);
+  
+  --dark-background-color: rgb(25,25,25);
+  --dark-box-color: rgba(255,255,255,0.2);
+  
+  --dark-strength-color: rgb(125,50,50);
+  --dark-dexterity-color: rgb(125,125,50);
+  --dark-constitution-color: rgb(50,125,50);
+  --dark-intelligence-color: rgb(50,125,125);
+  --dark-wisdom-color: rgb(50,50,125);
+  --dark-charisma-color: rgb(125,50,125);
+}
+
+body {
+	margin: 0px;
+	margin-bottom: 50px;
+	
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	
+	background-color: var(--light-background-color);
+	color: var(--dark-background-color);
+}
+.body-dark {
+	background-color: var(--dark-background-color);
+	color: var(--light-background-color);
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.toggleMode {
+	position: absolute;
+	
+	width: 35px;
+	height: 35px;
+	
+	background-color: var(--dark-background-color);
+	border-radius: 35px;
+}
+.toggleMode:hover {
+	background-color: rgb(150,150,150);
+}
+.toggleMode:active {
+	background-color: var(--light-background-color);
+}
+
+.darkMode {
+	background-color: var(--light-background-color);
+}
+.darkMode:active {
+	background-color: var(--dark-background-color);
+}

@@ -1,0 +1,159 @@
+.character-name {
+	margin: 0px;
+	padding: 15px 0px;
+	
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	
+	background-color: var(--light-box-color);
+}
+.name-dark {
+	background-color: var(--dark-box-color);
+}
+
+.character-info1{
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+.character-info-details {
+	text-align: center;
+	
+	background-color: var(--light-box-color);
+}
+
+.character-ability {
+	display: grid;
+	grid-template-columns: repeat(6, 140px);
+	column-gap: 15px;
+	justify-content: center;
+	margin: 10px 0px;
+	
+	text-align: center;
+}
+
+.character-ability-box {
+	border-radius: 5px;
+}
+.character-ability-strength {
+	background-color: var(--light-strength-color);
+}
+.character-ability-dexterity {
+	background-color: var(--light-dexterity-color);
+}
+.character-ability-constitution {
+	background-color: var(--light-constitution-color);
+}
+.character-ability-intelligence {
+	background-color: var(--light-intelligence-color);
+}
+.character-ability-wisdom {
+	background-color: var(--light-wisdom-color);
+}
+.character-ability-charisma {
+	background-color: var(--light-charisma-color);
+}
+
+.strength-dark {
+	background-color: var(--dark-strength-color);
+}
+.dexterity-dark {
+	background-color: var(--dark-dexterity-color);
+}
+.constitution-dark {
+	background-color: var(--dark-constitution-color);
+}
+.intelligence-dark {
+	background-color: var(--dark-intelligence-color);
+}
+.wisdom-dark {
+	background-color: var(--dark-wisdom-color);
+}
+.charisma-dark {
+	background-color: var(--dark-charisma-color);
+}
+
+.character-ability-name {
+}
+.character-ability-modifier {
+	width: 90%;
+	margin: auto;
+	padding: 5px 0px;
+	
+	font-size: 30px;
+	font-weight: bold;
+	
+	background-color: var(--light-box-color);
+	border-radius: 5px;
+}
+.character-ability-score {
+	font-size: 15px;
+}
+
+.character-tab-button {
+	text-align: center;
+}
+.character-tab-button input {
+	margin: 10px 10px;
+	padding: 5px;
+	width: 200px;
+	
+	font-size: 20px;
+	
+	background-color: pink;
+}
+
+.character-proficiencies-title{
+	font-weight: bold;
+	text-align: center;
+	font-size: 30px;
+}
+
+.character-skill-list{}
+
+.character-skill-box{
+	padding: 5px 10px;
+}
+}
+
+.character-skill-ability{
+	font-weight: bold;
+	padding: 5px 0px;
+	font-size: 25px;
+}
+
+.character-skill-save, .character-skill-skill{
+	display: flex;
+	padding: 2px 0px;
+	margin: 2px 0px;
+	background-color: var(--light-box-color);
+	border-radius: 5px;
+}
+.character-skill-save{
+	font-weight: bold;
+	font-style: italic;
+}
+.character-skill-skill{
+}
+
+.character-skill-bonus{
+	padding: 2px 0px;
+	width: 30px;
+	margin-right: 5px;
+	
+	text-align: center;
+	
+	background-color: var(--light-box-color);
+	border-radius: 5px;
+}
+
+.character-proficiency-box {
+	
+}
+.character-proficiency-box p {
+	margin: 5px 0px;
+	padding: 5px 5px;
+	
+	background-color: var(--light-box-color);
+}

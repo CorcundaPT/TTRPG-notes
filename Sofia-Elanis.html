@@ -1,131 +1,140 @@
 <!DOCTYPE html>
 <html>
-	<script src="script/main.js"></script>
-	<script src="character/sofiaElanis.js"></script>
-  <body onload="characterStats">
-    <!--Character Name-->
-    <p>Elanis, Light of the moon</p>
-    
-    <!--Character Specie, Background, Level, Class-->
-    <div style="display:flex">
-      <p>Specie: Elf (High-Elf)</p>
-      <p>Level: 2</p>
-      <p>Background: Criminal</p>
-    </div>
-    <div>
-      <p>Class: Rogue Level 2</p>
-    </div>
-    
-    <!--Character Ability Scores-->
-    <div>
-      <div>
-        <p>Strength</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-      <div>
-        <p>Dexterity</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-      <div>
-        <p>Constitution</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-      <div>
-        <p>Intelligence</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-      <div>
-        <p>Wisdom</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-      <div>
-        <p>Charisma</p>
-        <p>-1</p>
-        <p>8</p>
-      </div>
-    </div>
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/character5e.css">
 
-    <!--buttons to swap between (Skills and Proficiencies), (Features description), (Inventory), (Feature Source)-->
-    <div>
-      <input value="Proficiencies">
-      <input value="Features">
-      <input value="Inventory">
-      <input value="Character Info">
-    </div>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/character.js"></script>
+	<script src="characters/Sofia_Elanis.js"></script>
+	<body onload="characterStats()">
+		<!--Night Mode-->
+		<input type="button" onclick="swapModes()" id="swapMode" class="toggleMode" style="top:5px; right:5px">
+		
+		<!--Character Name-->
+		<p id="characterName" class="character-name">Error Loading...</p>
+		
+		<!--Character Specie, Background, Level, Class-->
+		<div class="character-info1">
+			<p class="character-info-details"><i>Specie:</i> <b id="characterSpecie">00</b></p>
+			<p class="character-info-details"><i>Background:</i> <b id="characterBackground">00</b></p>
+			<p class="character-info-details"><i>Level:</i> <b id="characterLevel">00</b></p>
+		</div>
+		<div class="character-info2">
+			<p class="character-info-details"><i>Class:</i> <b id="characterClass">00</b></p>
+		</div>
+		
+		<!--Character Ability Scores-->
+		<div class="character-ability">
+			<div class="character-ability-strength character-ability-box">
+				<p class="character-ability-name">Strength</p>
+				<p id="characterStrengthModifier" class="character-ability-modifier">00</p>
+				<p id="characterStrengthScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-dexterity character-ability-box">
+				<p class="character-ability-name">Dexterity</p>
+				<p id="characterDexterityModifier" class="character-ability-modifier">00</p>
+				<p id="characterDexterityScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-constitution character-ability-box">
+				<p class="character-ability-name">Constitution</p>
+				<p id="characterConstitutionModifier" class="character-ability-modifier">00</p>
+				<p id="characterConstitutionScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-intelligence character-ability-box">
+				<p class="character-ability-name">Intelligence</p>
+				<p id="characterIntelligenceModifier" class="character-ability-modifier">00</p>
+				<p id="characterIntelligenceScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-wisdom character-ability-box">
+				<p class="character-ability-name">Wisdom</p>
+				<p id="characterWisdomModifier" class="character-ability-modifier">00</p>
+				<p id="characterWisdomScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-charisma character-ability-box">
+				<p class="character-ability-name">Charisma</p>
+				<p id="characterCharismaModifier" class="character-ability-modifier">00</p>
+				<p id="characterCharismaScore" class="character-ability-score">00</p>
+			</div>
+		</div>
+		
+		<!--buttons to swap between (Skills and Proficiencies), (Features description), (Inventory), (Feature Source)-->
+		<div class="character-tab-button">
+			<input type="button" value="Proficiencies">
+			<input type="button" value="Features">
+			<input type="button" value="Inventory">
+			<input type="button" value="Character Info">
+		</div>
+		
+		<!--Skills and Proficiencies Tab-->
+		<div id="characterTabProficiencies">
+			<!--Character Skills-->
+			<p class="character-proficiencies-title">Skills</p>
+			<div class="character-skill-list">
+				<!--Strength Skills-->
+				<div class="character-ability-strength character-skill-box">
+					<div class="character-skill-ability">Strength</div>
+					<div class="character-skill-save"><p id="characterStrengthSave" class="character-skill-bonus">00</p> Saving Throw</div>
+					<div class="character-skill-skill"><p id="characterStrengthAthletics" class="character-skill-bonus">00</p> Athletics</div>
+				</div>
+				<!--Dexterity Skills-->
+				<div class="character-ability-dexterity character-skill-box">
+					<div class="character-skill-ability">Dexterity</div>
+					<div class="character-skill-save"><p id="characterDexteritySave" class="character-skill-bonus">00</p> Saving Throw</div>
+					<div class="character-skill-skill"><p id="characterDexterityAcrobatics" class="character-skill-bonus">00</p> Acrobatics</div>
+					<div class="character-skill-skill"><p id="characterDexteritySleightOfHand" class="character-skill-bonus">00</p> Sleight of Hand</div>
+					<div class="character-skill-skill"><p id="characterDexterityStealth" class="character-skill-bonus">00</p> Stealth</div>
+				</div>
+				<!--Constitution Skills-->
+				<div class="character-ability-constitution character-skill-box">
+					<div class="character-skill-ability">Constitution</div>
+					<div class="character-skill-save"><p id="characterConstitutionSave" class="character-skill-bonus">00</p> Saving Throw</div>
+				</div>
+				<!--Intelligence Skills-->
+				<div class="character-ability-intelligence character-skill-box" class="character-skill-strength character-skill-box">
+					<div class="character-skill-ability">Intelligence</div>
+					<div class="character-skill-save"><p id="characterIntelligenceSave" class="character-skill-bonus">00</p> Saving Throw</div>
+					<div class="character-skill-skill"><p id="characterIntelligenceArcana"  class="character-skill-bonus">00</p> Arcana</div>
+					<div class="character-skill-skill"><p id="characterIntelligenceHistory" class="character-skill-bonus">00</p> History</div>
+					<div class="character-skill-skill"><p id="characterIntelligenceInvestigation" class="character-skill-bonus">00</p> Investigation</div>
+					<div class="character-skill-skill"><p id="characterIntelligenceNature" class="character-skill-bonus">00</p> Nature</div>
+					<div class="character-skill-skill"><p id="characterIntelligenceReligion" class="character-skill-bonus">00</p> Religion</div>
+				</div>
+				<!--Wisdom Skills-->
+				<div class="character-ability-wisdom character-skill-box">
+					<div class="character-skill-ability">Wisdom</div>
+					<div class="character-skill-save"><p id="characterWisdomSave" class="character-skill-bonus">00</p> Saving Throw</div>
+					<div class="character-skill-skill"><p id="characterWisdomAnimalHandling" class="character-skill-bonus">00</p> Animal Handling</div>
+					<div class="character-skill-skill"><p id="characterWisdomInsight" class="character-skill-bonus">00</p> Insight</div>
+					<div class="character-skill-skill"><p id="characterWisdomMedicine" class="character-skill-bonus">00</p> Medicine</div>
+					<div class="character-skill-skill"><p id="characterWisdomPerception" class="character-skill-bonus">00</p> Perception</div>
+					<div class="character-skill-skill"><p id="characterWisdomSurvival" class="character-skill-bonus">00</p> Survival</div>
+				</div>
+				<!--Charisma Skills-->
+				<div class="character-ability-charisma character-skill-box">
+					<div class="character-skill-ability">Charisma</div>
+					<div class="character-skill-save"><p id="characterCharismaSave" class="character-skill-bonus">00</p> Saving Throw</div>
+					<div class="character-skill-skill"><p id="characterCharismaDeception" class="character-skill-bonus">00</p> Deception</div>
+					<div class="character-skill-skill"><p id="characterCharismaIntimidation" class="character-skill-bonus">00</p> Intimidation</div>
+					<div class="character-skill-skill"><p id="characterCharismaPerformance" class="character-skill-bonus">00</p> Performance</div>
+					<div class="character-skill-skill"><p id="characterCharismaPersuasion" class="character-skill-bonus">00</p> Persuasion</div>
+				</div>
+			</div>
+			
+			<!--Character Proficiencies-->
+			<p class="character-proficiencies-title">Proficiency</p>
+			<div class="character-proficiency-box">
+				<p><i>Weapons:</i> <b id="characterWeaponProficiency">00</b></p>
+				<p><i>Armor:</i> <b id="characterArmorProficiency">00</b></p>
+				<p><i>Tools:</i> <b id="characterToolsProficiency">00</b></p>
+				<p><i>Senses:</i> <b id="characterSensesProficiency">00</b></p>
+				<p><i>Language:</i> <b id="characterLanguageProficiency">00</b></p>
+				<p><i>Saves:</i> <b id="characterSavesProficiency">00</b></p>
+				<p><i>Skills:</i> <b id="characterSkillsProficiency">00</b></p>
+			</div>
+		</div>
 
-    <!--Skills and Proficiencies Tab-->
-    <div>
-      <!--Character Skills-->
-      <p>Skills</p>
-      <div>
-        <!--Strength Skills-->
-        <div>
-          <p>Strength</p>
-          <p><label></label> Saving Throw</p>
-          <p><label></label> Athletics</p>
-        </div>
-        <!--Dexterity Skills-->
-        <div>
-          <p>Dexterity</p>
-          <p><label></label> Saving Throw</p>
-          <p><label></label> Acrobatics</p>
-          <p><label></label> Sleight of Hands</p>
-          <p><label></label> Stealth</p>
-        </div>
-        <!--Constitution Skills-->
-        <div>
-          <p>Constitution</p>
-          <p><label></label> Saving Throw</p>
-        </div>
-        <!--Intelligence Skills-->
-        <div>
-          <p>Intelligence</p>
-          <p><label></label> Saving Throw</p>
-          <p><label></label> Arcana</p>
-          <p><label></label> History</p>
-          <p><label></label> Investigaion</p>
-          <p><label></label> Nature</p>
-          <p><label></label> Religion</p>
-        </div>
-        <!--Wisdom Skills-->
-        <div>
-          <p>Wisdom</p>
-          <p><label></label> Saving Throw</p>
-          <p><label></label> Animal Handling</p>
-          <p><label></label> Insight</p>
-          <p><label></label> Medicine</p>
-          <p><label></label> Perception</p>
-          <p><label></label> Survival</p>
-        </div>
-        <!--Charisma Skills-->
-        <div>
-          <p>Charisma</p>
-          <p><label></label> Saving Throw</p>
-          <p><label></label> Deception</p>
-          <p><label></label> Intimidation</p>
-          <p><label></label> Performance</p>
-          <p><label></label> Persuasion</p>
-        </div>
-      </div>
-      
-      <!--Character Proficiencies-->
-      <p>Proficiency</p>
-      <div>
-        <p>Weapons: </p>
-        <p>Armor: </p>
-        <p>Tools: </p>
-        <p>Language: </p>
-        <p>Senses: </p>
-      </div>
-    </div>
-
-    <!--Feature Description Tab-->
-    <!--Inventory Tab-->
-    <!--Feature Source Tab-->
-  </body>
+		<!--Feature Description Tab-->
+		<!--Inventory Tab-->
+		<!--Feature Source Tab-->
+	</body>
 </html>
