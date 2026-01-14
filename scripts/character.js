@@ -351,6 +351,42 @@ function swapModes() {
 		for(let i = 0; i < charismaArray.length; i++) {
 			charismaArray[i].classList.add("charisma-dark")
 		}
+		
+		//Dark input
+		var inputArray = document.getElementsByClassName("character-tab-button-input");
+		for(let i = 0; i < inputArray.length; i++) {
+			inputArray[i].classList.add("input-dark")
+		}
+			
+		//Dark boxes
+		var nameArray = document.getElementsByClassName("character-name");
+		for(let i = 0; i < nameArray.length; i++) {
+			nameArray[i].classList.add("box-dark")
+		}
+		var infoArray = document.getElementsByClassName("character-info-details");
+		for(let i = 0; i < infoArray.length; i++) {
+			infoArray[i].classList.add("box-dark")
+		}
+		var modifierArray = document.getElementsByClassName("character-ability-modifier");
+		for(let i = 0; i < modifierArray.length; i++) {
+			modifierArray[i].classList.add("box-dark")
+		}
+		var saveArray = document.getElementsByClassName("character-skill-save");
+		for(let i = 0; i < saveArray.length; i++) {
+			saveArray[i].classList.add("box-dark")
+		}
+		var skillArray = document.getElementsByClassName("character-skill-skill");
+		for(let i = 0; i < skillArray.length; i++) {
+			skillArray[i].classList.add("box-dark")
+		}
+		var bonusArray = document.getElementsByClassName("character-skill-bonus");
+		for(let i = 0; i < bonusArray.length; i++) {
+			bonusArray[i].classList.add("box-dark")
+		}
+		var proficiencyArray = document.getElementsByClassName("character-proficiency-proficiency");
+		for(let i = 0; i < proficiencyArray.length; i++) {
+			proficiencyArray[i].classList.add("box-dark")
+		}
 	} else {
 		document.getElementById("swapMode").classList.remove("darkMode");
 		document.body.classList.remove("body-dark");
@@ -383,6 +419,42 @@ function swapModes() {
 		var charismaArray = document.getElementsByClassName("character-ability-charisma");
 		for(let i = 0; i < charismaArray.length; i++) {
 			charismaArray[i].classList.remove("charisma-dark")
+		}
+		
+		//Dark input
+		var inputArray = document.getElementsByClassName("character-tab-button-input");
+		for(let i = 0; i < inputArray.length; i++) {
+			inputArray[i].classList.remove("input-dark")
+		}
+			
+		//Dark boxes
+		var nameArray = document.getElementsByClassName("character-name");
+		for(let i = 0; i < nameArray.length; i++) {
+			nameArray[i].classList.remove("box-dark")
+		}
+		var infoArray = document.getElementsByClassName("character-info-details");
+		for(let i = 0; i < infoArray.length; i++) {
+			infoArray[i].classList.remove("box-dark")
+		}
+		var modifierArray = document.getElementsByClassName("character-ability-modifier");
+		for(let i = 0; i < modifierArray.length; i++) {
+			modifierArray[i].classList.remove("box-dark")
+		}
+		var saveArray = document.getElementsByClassName("character-skill-save");
+		for(let i = 0; i < saveArray.length; i++) {
+			saveArray[i].classList.remove("box-dark")
+		}
+		var skillArray = document.getElementsByClassName("character-skill-skill");
+		for(let i = 0; i < skillArray.length; i++) {
+			skillArray[i].classList.remove("box-dark")
+		}
+		var bonusArray = document.getElementsByClassName("character-skill-bonus");
+		for(let i = 0; i < bonusArray.length; i++) {
+			bonusArray[i].classList.remove("box-dark")
+		}
+		var proficiencyArray = document.getElementsByClassName("character-proficiency-proficiency");
+		for(let i = 0; i < proficiencyArray.length; i++) {
+			proficiencyArray[i].classList.remove("box-dark")
 		}
 	}
 }

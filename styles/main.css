@@ -10,7 +10,7 @@
   --light-charisma-color: rgb(255,150,255);
   
   --dark-background-color: rgb(25,25,25);
-  --dark-box-color: rgba(255,255,255,0.2);
+  --dark-box-color: rgba(255,255,255,0.3);
   
   --dark-strength-color: rgb(125,50,50);
   --dark-dexterity-color: rgb(125,125,50);
@@ -18,13 +18,17 @@
   --dark-intelligence-color: rgb(50,125,125);
   --dark-wisdom-color: rgb(50,50,125);
   --dark-charisma-color: rgb(125,50,125);
+  
+  --font-size-big: 80px;
+  --font-size-medium: 50px;
+  --font-size-small: 35px;
 }
 
 body {
 	margin: 0px;
 	margin-bottom: 50px;
 	
-	font-size: 20px;
+	font-size: var(--font-size-medium);
 	font-family: Arial, Helvetica, sans-serif;
 	
 	background-color: var(--light-background-color);
