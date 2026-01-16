@@ -1,27 +1,35 @@
 :root {
-  --light-background-color: rgb(255,255,255);
-  --light-box-color: rgba(25,25,25,0.2);
-  
-  --light-strength-color: rgb(255,150,150);
-  --light-dexterity-color: rgb(255,255,150);
-  --light-constitution-color: rgb(150,255,150);
-  --light-intelligence-color: rgb(150,255,255);
-  --light-wisdom-color: rgb(150,150,255);
-  --light-charisma-color: rgb(255,150,255);
-  
-  --dark-background-color: rgb(25,25,25);
-  --dark-box-color: rgba(255,255,255,0.3);
-  
-  --dark-strength-color: rgb(125,50,50);
-  --dark-dexterity-color: rgb(125,125,50);
-  --dark-constitution-color: rgb(50,125,50);
-  --dark-intelligence-color: rgb(50,125,125);
-  --dark-wisdom-color: rgb(50,50,125);
-  --dark-charisma-color: rgb(125,50,125);
-  
-  --font-size-big: 60px;
-  --font-size-medium: 35px;
-  --font-size-small: 30px;
+	--light-background-color: rgb(255,255,255);
+	--light-text-color: rgb(0,0,0);
+	--light-box-color: rgba(25,25,25,0.15);
+	--light-info-tag: rgb(0,100,255);
+	
+	--light-strength-color: rgb(255,150,150);
+	--light-dexterity-color: rgb(255,255,150);
+	--light-constitution-color: rgb(150,255,150);
+	--light-intelligence-color: rgb(150,255,255);
+	--light-wisdom-color: rgb(150,150,255);
+	--light-charisma-color: rgb(255,150,255);
+	
+	--bland-text-color: rgb(125,125,125);
+	
+	--dark-background-color: rgb(25,25,25);
+	--dark-text-color: rgb(255,255,255);
+	--dark-box-color: rgba(255,255,255,0.3);
+	--dark-info-tag: rgb(255,200,50);
+	
+	--dark-strength-color: rgb(125,50,50);
+	--dark-dexterity-color: rgb(125,125,50);
+	--dark-constitution-color: rgb(50,125,50);
+	--dark-intelligence-color: rgb(50,125,125);
+	--dark-wisdom-color: rgb(50,50,125);
+	--dark-charisma-color: rgb(125,50,125);
+	
+	--font-size-huge: 60px;
+	--font-size-big: 45px;
+	--font-size-medium: 35px;
+	--font-size-small: 30px;
+	--font-size-tiny: 25px;
 }
 
 body {
@@ -32,11 +40,13 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	
 	background-color: var(--light-background-color);
-	color: var(--dark-background-color);
+	color: var(--light-text-color);
+	
+	user-select: none;
 }
 .body-dark {
 	background-color: var(--dark-background-color);
-	color: var(--light-background-color);
+	color: var(--dark-text-color);
 }
 
 p {

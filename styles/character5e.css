@@ -1,12 +1,14 @@
+.text-box{
+	background-color: var(--light-box-color);
+}
+
 .character-name {
 	margin: 0px;
 	padding: 15px 0px;
 	
 	text-align: center;
-	font-size: var(--font-size-big);
+	font-size: var(--font-size-huge);
 	font-weight: bold;
-	
-	background-color: var(--light-box-color);
 }
 
 .character-info1{
@@ -18,8 +20,6 @@
 	text-align: center;
 	
 	font-size: var(--font-size-small);
-	
-	background-color: var(--light-box-color);
 }
 
 .character-ability {
@@ -80,10 +80,9 @@
 	margin: auto;
 	padding: 5px 0px;
 	
-	font-size: var(--font-size-big);
+	font-size: var(--font-size-huge);
 	font-weight: bold;
 	
-	background-color: var(--light-box-color);
 	border-radius: 5px;
 }
 .character-ability-score {
@@ -107,6 +106,9 @@
 	background-color: var(--dark-background-color);
 	color: var(--light-background-color);
 }
+.input-active {
+	background-color: cyan;
+}
 
 .character-proficiencies-title{
 	font-weight: bold;
@@ -129,7 +131,6 @@
 	padding: 2px 0px;
 	margin: 2px 0px;
 	
-	background-color: var(--light-box-color);
 	border-radius: 5px;
 }
 .character-skill-save{
@@ -146,7 +147,6 @@
 	
 	text-align: center;
 	
-	background-color: var(--light-box-color);
 	border-radius: 5px;
 }
 
@@ -156,9 +156,78 @@
 .character-proficiency-proficiency {
 	margin: 5px 0px;
 	padding: 5px 5px;
-	
-	background-color: var(--light-box-color);
 }
+
+
+.characterFeatureSubclass{
+	margin: 30px 0px;
+	
+	font-weight: bold;
+	font-style: italic;
+	font-size: var(--font-size-big);
+	text-align: center;
+}
+
+.boxFeature {
+	padding: 10px 0px;
+	margin: 10px 0px;
+}
+.feature-name{
+	font-weight: bolder;
+	font-size: var(--font-size-big);
+	text-align: center;
+}
+.feature-type{
+	margin-top: -5px;
+	margin-bottom: 0px;
+	
+	color: var(--bland-text-color);
+	
+	text-align:center;
+	font-size: var(--font-size-tiny);
+	font-style: italic;
+}
+
+.feature-content{
+	padding: 5px 10px;
+	margin: 5px 0px;
+}
+
+.feature-info {
+	padding: 5px 10px;
+}
+
+.featureInfoBold{
+	color: var(--light-info-tag);
+}
+.featureInfoBold-dark {
+	color: var(--dark-info-tag);
+}
+
+.feature-effect {
+	margin-bottom: 5px;
+}
+
+.spell-effect, .spell-upgrade, .weapon-effect, .weapon-mastery {
+	border-radius: 10px;
+}
+.spell-effect {
+	padding-bottom: 5px;
+}
+.spell-upgrade {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
 
 .box-dark {
 	background-color: var(--dark-box-color);

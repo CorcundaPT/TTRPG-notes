@@ -358,34 +358,16 @@ function swapModes() {
 			inputArray[i].classList.add("input-dark")
 		}
 			
+		//Dark info tag
+		var boxArray = document.getElementsByClassName("featureInfoBold");
+		for(let i = 0; i < boxArray.length; i++) {
+			boxArray[i].classList.add("featureInfoBold-dark")
+		}
+			
 		//Dark boxes
-		var nameArray = document.getElementsByClassName("character-name");
-		for(let i = 0; i < nameArray.length; i++) {
-			nameArray[i].classList.add("box-dark")
-		}
-		var infoArray = document.getElementsByClassName("character-info-details");
-		for(let i = 0; i < infoArray.length; i++) {
-			infoArray[i].classList.add("box-dark")
-		}
-		var modifierArray = document.getElementsByClassName("character-ability-modifier");
-		for(let i = 0; i < modifierArray.length; i++) {
-			modifierArray[i].classList.add("box-dark")
-		}
-		var saveArray = document.getElementsByClassName("character-skill-save");
-		for(let i = 0; i < saveArray.length; i++) {
-			saveArray[i].classList.add("box-dark")
-		}
-		var skillArray = document.getElementsByClassName("character-skill-skill");
-		for(let i = 0; i < skillArray.length; i++) {
-			skillArray[i].classList.add("box-dark")
-		}
-		var bonusArray = document.getElementsByClassName("character-skill-bonus");
-		for(let i = 0; i < bonusArray.length; i++) {
-			bonusArray[i].classList.add("box-dark")
-		}
-		var proficiencyArray = document.getElementsByClassName("character-proficiency-proficiency");
-		for(let i = 0; i < proficiencyArray.length; i++) {
-			proficiencyArray[i].classList.add("box-dark")
+		var boxArray = document.getElementsByClassName("text-box");
+		for(let i = 0; i < boxArray.length; i++) {
+			boxArray[i].classList.add("box-dark")
 		}
 	} else {
 		document.getElementById("swapMode").classList.remove("darkMode");
@@ -427,34 +409,191 @@ function swapModes() {
 			inputArray[i].classList.remove("input-dark")
 		}
 			
+		//Dark info tag
+		var boxArray = document.getElementsByClassName("featureInfoBold");
+		for(let i = 0; i < boxArray.length; i++) {
+			boxArray[i].classList.remove("featureInfoBold-dark")
+		}
+			
 		//Dark boxes
-		var nameArray = document.getElementsByClassName("character-name");
-		for(let i = 0; i < nameArray.length; i++) {
-			nameArray[i].classList.remove("box-dark")
+		var boxArray = document.getElementsByClassName("text-box");
+		for(let i = 0; i < boxArray.length; i++) {
+			boxArray[i].classList.remove("box-dark")
 		}
-		var infoArray = document.getElementsByClassName("character-info-details");
-		for(let i = 0; i < infoArray.length; i++) {
-			infoArray[i].classList.remove("box-dark")
+	}
+}
+
+//function to get Features
+function getFeature(id,feature,extra) {
+	document.getElementById(id).innerHTML = "";
+	if(feature) {
+		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+
+		//Feature Name
+		var featureTitle = document.createElement("p");
+		featureTitle.classList.add("feature-name");
+		featureTitle.innerHTML = feature.name;
+		document.getElementById(id).appendChild(featureTitle);
+		
+		//Feature Type
+		var featureType = document.createElement("p");
+		featureType.classList.add("feature-type");
+		featureType.innerHTML = feature.type;
+		document.getElementById(id).appendChild(featureType);
+		
+		//div para esconder informação
+		var featureContent = document.createElement("div");
+		featureContent.id = id + "Content";
+		featureContent.classList.add("feature-content","text-box");
+		featureContent.style.display = "none";
+		
+		//Feature Effect
+		for(let i = 0; i < feature.effect.length; i++) {
+			var featureEffect = document.createElement("p");
+			featureEffect.classList.add("feature-info","feature-effect");
+			featureEffect.innerHTML = feature.effect[i];
+			featureContent.appendChild(featureEffect);
 		}
-		var modifierArray = document.getElementsByClassName("character-ability-modifier");
-		for(let i = 0; i < modifierArray.length; i++) {
-			modifierArray[i].classList.remove("box-dark")
+		
+		document.getElementById(id).appendChild(featureContent);
+	} else {
+		//No Feature Found
+		var content = document.createElement("p");
+		content.innerHTML = "no feature found... <small><i>(" + id.substring(1) + ")</i></small>";
+		document.getElementById(id).appendChild(content);
+	}
+}
+
+//function to get Weapons
+function getWeapon(id,feature,mastery) {
+	document.getElementById(id).innerHTML = "";
+	if(feature) {
+		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+
+		//Weapon Name
+		var weaponTitle = document.createElement("p");
+		weaponTitle.classList.add("feature-name");
+		weaponTitle.innerHTML = feature.name;
+		document.getElementById(id).appendChild(weaponTitle);
+		
+		//Weapon Type
+		var weaponType = document.createElement("p");
+		weaponType.classList.add("feature-type");
+		weaponType.innerHTML = feature.type;
+		document.getElementById(id).appendChild(weaponType);
+		
+		//div para esconder informação
+		var weaponContent = document.createElement("div");
+		weaponContent.id = id + "Content";
+		weaponContent.classList.add("feature-content","text-box");
+		weaponContent.style.display = "none";
+		
+		//Weapon Damage
+		var weaponDamage = document.createElement("p");
+		weaponDamage.classList.add("feature-info","weapon-damage");
+		weaponDamage.innerHTML = "<b class='featureInfoBold'>Damage:</b> " + feature.damage;
+		weaponContent.appendChild(weaponDamage);
+		
+		//Weapon Property
+		var weaponProperties = document.createElement("p");
+		weaponProperties.classList.add("feature-info","weapon-properties");
+		weaponProperties.innerHTML = "<b class='featureInfoBold'>Properties:</b> " + feature.properties;
+		weaponContent.appendChild(weaponProperties);
+		
+		//Weapon Effect
+		if(feature.effect) {
+			var weaponEffect = document.createElement("p");
+			weaponEffect.classList.add("feature-info","text-box","weapon-effect");
+			weaponEffect.innerHTML = "<b class='featureInfoBold'>Upgrade:</b> " + feature.effect;
+			weaponContent.appendChild(weaponEffect);
 		}
-		var saveArray = document.getElementsByClassName("character-skill-save");
-		for(let i = 0; i < saveArray.length; i++) {
-			saveArray[i].classList.remove("box-dark")
+		
+		//Weapon Mastery
+		if(mastery == 1) {
+			var weaponMastery = document.createElement("p");
+			weaponMastery.classList.add("feature-info","text-box","weapon-mastery");
+			weaponMastery.innerHTML = "<b class='featureInfoBold' class='featureInfoBold'>" + feature.mastery.name + ":</b>" +feature.mastery.effect;
+			weaponContent.appendChild(weaponMastery);
 		}
-		var skillArray = document.getElementsByClassName("character-skill-skill");
-		for(let i = 0; i < skillArray.length; i++) {
-			skillArray[i].classList.remove("box-dark")
+		
+		document.getElementById(id).appendChild(weaponContent);
+	} else {
+		//No Weapon Found
+		var content = document.createElement("p");
+		content.innerHTML = "no weapon found... <small><i>(" + id.substring(1) + ")</i></small>";
+		document.getElementById(id).appendChild(content);
+	}
+}
+
+//function to get Spell
+function getSpell(id,feature,mastery) {
+	document.getElementById(id).innerHTML = "";
+	if(feature) {
+		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+
+		//Spell Name
+		var spellTitle = document.createElement("p");
+		spellTitle.classList.add("feature-name");
+		spellTitle.innerHTML = feature.name;
+		document.getElementById(id).appendChild(spellTitle);
+		
+		//Spell Type
+		var spellType = document.createElement("p");
+		spellType.classList.add("feature-type");
+		spellType.innerHTML = feature.type;
+		document.getElementById(id).appendChild(spellType);
+		
+		//div para esconder informação
+		var spellContent = document.createElement("div");
+		spellContent.id = id + "Content";
+		spellContent.classList.add("feature-content","text-box");
+		spellContent.style.display = "none";
+		
+		//Spell Casting Time
+		var spellCasting = document.createElement("p");
+		spellCasting.classList.add("feature-info","spell-casting");
+		spellCasting.innerHTML = "<b class='featureInfoBold'>Casting Time:</b> " + feature.castingTime;
+		spellContent.appendChild(spellCasting);
+		
+		//Spell Casting Time
+		var spellRange = document.createElement("p");
+		spellRange.classList.add("feature-info","spell-range");
+		spellRange.innerHTML = "<b class='featureInfoBold'>Range:</b> " + feature.range;
+		spellContent.appendChild(spellRange);
+		
+		//Spell Components
+		var spellComponents = document.createElement("p");
+		spellComponents.classList.add("feature-info","spell-components");
+		spellComponents.innerHTML = "<b class='featureInfoBold'>Components:</b> " + feature.components;
+		spellContent.appendChild(spellComponents);
+		
+		//Spell Duration
+		var spellDuration = document.createElement("p");
+		spellDuration.classList.add("feature-info","spell-duration");
+		spellDuration.innerHTML = "<b class='featureInfoBold'>Duration:</b> " + feature.duration;
+		spellContent.appendChild(spellDuration);
+		
+		//Spell Effect
+		for(let i = 0; i < feature.effect.length; i++) {
+			var spellEffect = document.createElement("p");
+			spellEffect.classList.add("feature-info","text-box","spell-effect");
+			spellEffect.innerHTML = feature.effect[i];
+			spellContent.appendChild(spellEffect);
 		}
-		var bonusArray = document.getElementsByClassName("character-skill-bonus");
-		for(let i = 0; i < bonusArray.length; i++) {
-			bonusArray[i].classList.remove("box-dark")
+		
+		//Spell Upgrade
+		if(feature.upgrade) {
+			var spellUpgrade = document.createElement("p");
+			spellUpgrade.classList.add("feature-info","text-box","spell-upgrade");
+			spellUpgrade.innerHTML = "<b class='featureInfoBold'>Upgrade:</b> " + feature.upgrade;
+			spellContent.appendChild(spellUpgrade);
 		}
-		var proficiencyArray = document.getElementsByClassName("character-proficiency-proficiency");
-		for(let i = 0; i < proficiencyArray.length; i++) {
-			proficiencyArray[i].classList.remove("box-dark")
-		}
+		
+		document.getElementById(id).appendChild(spellContent);
+	} else {
+		//No Spell Found
+		var content = document.createElement("p");
+		content.innerHTML = "no spell found... <small><i>(" + id.substring(1) + ")</i></small>";
+		document.getElementById(id).appendChild(content);
 	}
 }
