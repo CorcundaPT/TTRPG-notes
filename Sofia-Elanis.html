@@ -63,10 +63,10 @@
 		
 		<!--buttons to swap between (Skills and Proficiencies), (Features description), (Inventory), (Feature Source)-->
 		<div class="character-tab-button">
-			<input type="button" class="character-tab-button-input input-active" value="Proficiencies">
-			<input type="button" class="character-tab-button-input" value="Features">
-			<input type="button" class="character-tab-button-input" value="Inventory">
-			<input type="button" class="character-tab-button-input" value="Character">
+			<input type="button" value="Proficiencies" onclick="characterSwapTags(this.value)" id="buttonTabProficiencies" class="character-tab-button-input input-active">
+			<input type="button" value="Features" onclick="characterSwapTags(this.value)" id="buttonTabFeatures" class="character-tab-button-input">
+			<input type="button" value="Inventory" onclick="characterSwapTags(this.value)" id="buttonTabInventory" class="character-tab-button-input">
+			<input type="button" value="Character" onclick="characterSwapTags(this.value)" id="buttonTabCharacter" class="character-tab-button-input">
 		</div>
 		
 		<!--Skills and Proficiencies Tab-->
@@ -143,11 +143,11 @@
 			getWeapon ("0", id, weaponID, Weapon Mastery[0,1], type of action[passive, action, bonusAction, time, reaction])
 			getSpell (id, spellID)
 		-->
-		<div id="characterTabFeatures" style="display:block">
+		<div id="characterTabFeatures" style="display:none">
 			<p id="passiveCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Passive Features</p>
 			<div id="passiveCharacterFeature"></div>
 			<script>getFeature("fAlert",feature.alert,"passive")</script>
-			<script>getFeature("fDarkvision",feature.darkvision60,"passive")</script>
+			<script>getFeature("fDarkvision60",feature.darkvision60,"passive")</script>
 			<script>getFeature("fFeyAncestry",feature.feyAncestry,"passive")</script>
 			<script>getFeature("fSneakAttack",feature.sneakAttack,"passive")</script>
 			<script>getFeature("fTrance",feature.trance,"passive")</script>
@@ -174,19 +174,40 @@
 		<!--
 			getWeapon (Quantaty, id, weaponID, Weapon Mastery[0,1], "inventory")
 		-->
-		<div id="characterTabInventory" style="display:block">
-		<p id="inventoryCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Inventory</p>
-		<div id="inventoryCharacterFeature"></div>
-		<script>getItem(99,"iArrow",item.arrow,0,"inventory")</script>
-		<script>getItem(5,"iArrowFire",item.arrowFire,0,"inventory")</script>
-		<script>getItem(1,"iLongbow",item.longbow,0,"inventory")</script>
-		<script>getItem(1,"iShortbow",item.shortbow,1,"inventory")</script>
-		<script>getItem(1,"iShortsword",item.shortsword,1,"inventory")</script>
-		<script>getItem(1,"iStuddedLeatherArmor",item.studdedLeatherArmor,0,"inventory")</script>
+		<div id="characterTabInventory" style="display:none">
+			<p id="inventoryCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Inventory</p>
+			<div id="inventoryCharacterFeature"></div>
+			<script>getItem(99,"iArrow",item.arrow,0,"inventory")</script>
+			<script>getItem(5,"iArrowFire",item.arrowFire,0,"inventory")</script>
+			<script>getItem(1,"iLongbow",item.longbow,0,"inventory")</script>
+			<script>getItem(1,"iShortbow",item.shortbow,1,"inventory")</script>
+			<script>getItem(1,"iShortsword",item.shortsword,1,"inventory")</script>
+			<script>getItem(1,"iStuddedLeatherArmor",item.studdedLeatherArmor,0,"inventory")</script>
+		</div>	
+		
 		<!--Feature Source Tab-->
-		<div id="characterTabSource" style="display:block">
+		<div id="characterTabCharacter" style="display:none">
 			<!--Specie Features-->
-			<div></div>
+			<p id="specieCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Specie Features</p>
+			<div id="specieCharacterFeature"></div>
+			<script>getFeature("sDarkvision60",feature.darkvision60,"specie")</script>
+			<script>getFeature("sElvenLineageHighElf",feature.elvenLineageHighElf,"specie",["Firebolt"])</script>
+			<script>getFeature("sFeyAncestry",feature.feyAncestry,"specie")</script>
+			<script>getFeature("sKeenSenses",feature.keenSenses,"specie")</script>
+			<script>getFeature("sTrance",feature.trance,"specie")</script>
+			
+			<!--Rogue Level 1-->
+			<p id="rogue1CharacterFeatureTitle" class="characterTabSubclass" style="display:block">1st Level Rogue Features</p>
+			<div id="rogue1CharacterFeature"></div>
+			<script>getFeature("rogue1Expertise",feature.expertise,"rogue1",["Perception","Stealth"])</script>
+			<script>getFeature("rogue1SneakAttack",feature.sneakAttack,"rogue1")</script>
+			<script>getFeature("rogue1ThievesCant",feature.thievesCant,"rogue1")</script>
+			<script>getFeature("rogue1WeaponMastery",feature.weaponMastery,"rogue1",["Shortbow","Shortsword"])</script>
+			
+			<!--Rogue Level 2-->
+			<p id="rogue2CharacterFeatureTitle" class="characterTabSubclass" style="display:block">2nd Level Rogue Features</p>
+			<div id="rogue2CharacterFeature"></div>
+			<script>getFeature("rogue2CunningAction",feature.cunningAction,"rogue2")</script>
 		</div>
 	</body>
 </html>

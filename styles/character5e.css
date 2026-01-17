@@ -208,6 +208,11 @@
 	margin-bottom: 5px;
 }
 
+.feature-selected {
+	margin-top: 30px;
+	margin-bottom: 5px;
+}
+
 .spell-effect, .spell-upgrade, .item-effect, .item-mastery {
 	border-radius: 10px;
 }

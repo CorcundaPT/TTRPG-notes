@@ -45,4 +45,3 @@ const item = {
 		"effect":"While wearing, your Armor Class = 12 + your Dexterity modifier"
 	}
 }
-studdedLeatherArmor
