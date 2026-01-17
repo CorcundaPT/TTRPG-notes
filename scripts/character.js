@@ -422,24 +422,27 @@ function swapModes() {
 		}
 	}
 }
-
-//function to get Features
-function getFeature(id,feature,extra) {
-	document.getElementById(id).innerHTML = "";
+function getFeature(id,feature,target) {
+	document.getElementById(target + "CharacterFeatureTitle").style.display = "block";
+	
+	var featureDiv = document.createElement("div")
+	featureDiv.id = id;
+	featureDiv.classList.add("boxFeature","text-box");
+	
 	if(feature) {
-		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+		featureDiv.setAttribute("onclick","toggleWindow(this.id+'Content')");
 
 		//Feature Name
 		var featureTitle = document.createElement("p");
 		featureTitle.classList.add("feature-name");
 		featureTitle.innerHTML = feature.name;
-		document.getElementById(id).appendChild(featureTitle);
+		featureDiv.appendChild(featureTitle);
 		
 		//Feature Type
 		var featureType = document.createElement("p");
 		featureType.classList.add("feature-type");
 		featureType.innerHTML = feature.type;
-		document.getElementById(id).appendChild(featureType);
+		featureDiv.appendChild(featureType);
 		
 		//div para esconder informação
 		var featureContent = document.createElement("div");
@@ -455,93 +458,139 @@ function getFeature(id,feature,extra) {
 			featureContent.appendChild(featureEffect);
 		}
 		
-		document.getElementById(id).appendChild(featureContent);
+		featureDiv.appendChild(featureContent);
 	} else {
 		//No Feature Found
 		var content = document.createElement("p");
 		content.innerHTML = "no feature found... <small><i>(" + id.substring(1) + ")</i></small>";
-		document.getElementById(id).appendChild(content);
+		featureDiv.appendChild(content);
 	}
+	
+	document.getElementById(target + "CharacterFeature").appendChild(featureDiv);
 }
 
-//function to get Weapons
-function getWeapon(id,feature,mastery) {
-	document.getElementById(id).innerHTML = "";
+function getItem(count,id,feature,mastery,target) {
+	if(target != "inventory") {
+		document.getElementById(target + "CharacterFeatureTitle").style.display = "block";
+	}
+	
+	var itemDiv = document.createElement("div")
+	itemDiv.id = id;
+	itemDiv.classList.add("boxFeature","text-box");
+	
 	if(feature) {
-		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+		itemDiv.setAttribute("onclick","toggleWindow(this.id+'Content')");
 
-		//Weapon Name
-		var weaponTitle = document.createElement("p");
-		weaponTitle.classList.add("feature-name");
-		weaponTitle.innerHTML = feature.name;
-		document.getElementById(id).appendChild(weaponTitle);
+		//item Name
+		if(target != "inventory") {
+			var itemTitle = document.createElement("p");
+			itemTitle.classList.add("feature-name");
+			itemTitle.innerHTML = feature.name;
+			itemDiv.appendChild(itemTitle);
+		} else {
+			var itemLine = document.createElement("div");
+			itemLine.classList.add("inventory-line");
+			
+			var itemCount = document.createElement("p");
+			itemCount.classList.add("inventory-count", "text-box");
+			itemCount.innerHTML = count;
+			itemLine.appendChild(itemCount);
+			
+			var itemTitle = document.createElement("p");
+			itemTitle.classList.add("inventory-name");
+			itemTitle.innerHTML = feature.name;
+			itemLine.appendChild(itemTitle);
+			
+			var itemType = document.createElement("p");
+			itemType.classList.add("inventory-type");
+			itemType.innerHTML = "(" + feature.type + ")";
+			itemLine.appendChild(itemType);
+			
+			itemDiv.appendChild(itemLine);
+		}
 		
-		//Weapon Type
-		var weaponType = document.createElement("p");
-		weaponType.classList.add("feature-type");
-		weaponType.innerHTML = feature.type;
-		document.getElementById(id).appendChild(weaponType);
+		//item Type
+		if(target != "inventory") {
+			var itemType = document.createElement("p");
+			itemType.classList.add("feature-type");
+			itemType.innerHTML = feature.type;
+			itemDiv.appendChild(itemType);
+		}
 		
 		//div para esconder informação
-		var weaponContent = document.createElement("div");
-		weaponContent.id = id + "Content";
-		weaponContent.classList.add("feature-content","text-box");
-		weaponContent.style.display = "none";
+		var itemContent = document.createElement("div");
+		itemContent.id = id + "Content";
+		itemContent.classList.add("feature-content","text-box");
+		itemContent.style.display = "none";
 		
-		//Weapon Damage
-		var weaponDamage = document.createElement("p");
-		weaponDamage.classList.add("feature-info","weapon-damage");
-		weaponDamage.innerHTML = "<b class='featureInfoBold'>Damage:</b> " + feature.damage;
-		weaponContent.appendChild(weaponDamage);
+		//item Damage
+		if(feature.damage) {
+			var itemDamage = document.createElement("p");
+			itemDamage.classList.add("feature-info","item-damage");
+			itemDamage.innerHTML = "<b class='featureInfoBold'>Damage:</b> " + feature.damage;
+			itemContent.appendChild(itemDamage);
+		}
 		
-		//Weapon Property
-		var weaponProperties = document.createElement("p");
-		weaponProperties.classList.add("feature-info","weapon-properties");
-		weaponProperties.innerHTML = "<b class='featureInfoBold'>Properties:</b> " + feature.properties;
-		weaponContent.appendChild(weaponProperties);
+		//item Property
+		if(feature.properties) {
+			var itemProperties = document.createElement("p");
+			itemProperties.classList.add("feature-info","item-properties");
+			itemProperties.innerHTML = "<b class='featureInfoBold'>Properties:</b> " + feature.properties;
+			itemContent.appendChild(itemProperties);
+		}
 		
-		//Weapon Effect
+		//item Effect
 		if(feature.effect) {
-			var weaponEffect = document.createElement("p");
-			weaponEffect.classList.add("feature-info","text-box","weapon-effect");
-			weaponEffect.innerHTML = "<b class='featureInfoBold'>Upgrade:</b> " + feature.effect;
-			weaponContent.appendChild(weaponEffect);
+			var itemEffect = document.createElement("p");
+			itemEffect.classList.add("feature-info","item-effect");
+			if(feature.damage || feature.properties || mastery == 1) {
+				itemEffect.classList.add("text-box");
+			}
+			itemEffect.innerHTML = feature.effect;
+			itemContent.appendChild(itemEffect);
 		}
 		
-		//Weapon Mastery
+		//item Mastery
 		if(mastery == 1) {
-			var weaponMastery = document.createElement("p");
-			weaponMastery.classList.add("feature-info","text-box","weapon-mastery");
-			weaponMastery.innerHTML = "<b class='featureInfoBold' class='featureInfoBold'>" + feature.mastery.name + ":</b>" +feature.mastery.effect;
-			weaponContent.appendChild(weaponMastery);
+			var itemMastery = document.createElement("p");
+			itemMastery.classList.add("feature-info","text-box","item-mastery");
+			itemMastery.innerHTML = "<b class='featureInfoBold' class='featureInfoBold'>" + feature.mastery.name + ":</b>" +feature.mastery.effect;
+			itemContent.appendChild(itemMastery);
 		}
 		
-		document.getElementById(id).appendChild(weaponContent);
+		itemDiv.appendChild(itemContent);
 	} else {
-		//No Weapon Found
+		//No Feature Found
 		var content = document.createElement("p");
-		content.innerHTML = "no weapon found... <small><i>(" + id.substring(1) + ")</i></small>";
-		document.getElementById(id).appendChild(content);
+		content.innerHTML = "no feature found... <small><i>(" + id.substring(1) + ")</i></small>";
+		itemDiv.appendChild(content);
 	}
+	
+	document.getElementById(target + "CharacterFeature").appendChild(itemDiv);
 }
 
 //function to get Spell
-function getSpell(id,feature,mastery) {
-	document.getElementById(id).innerHTML = "";
+function getSpell(id,feature,target) {
+	document.getElementById(target + "CharacterFeatureTitle").style.display = "block";
+	
+	var spellDiv = document.createElement("div")
+	spellDiv.id = id;
+	spellDiv.classList.add("boxFeature","text-box");
+	
 	if(feature) {
-		document.getElementById(id).setAttribute("onclick","toggleWindow(this.id+'Content')");
+		spellDiv.setAttribute("onclick","toggleWindow(this.id+'Content')");
 
 		//Spell Name
 		var spellTitle = document.createElement("p");
 		spellTitle.classList.add("feature-name");
 		spellTitle.innerHTML = feature.name;
-		document.getElementById(id).appendChild(spellTitle);
+		spellDiv.appendChild(spellTitle);
 		
 		//Spell Type
 		var spellType = document.createElement("p");
 		spellType.classList.add("feature-type");
 		spellType.innerHTML = feature.type;
-		document.getElementById(id).appendChild(spellType);
+		spellDiv.appendChild(spellType);
 		
 		//div para esconder informação
 		var spellContent = document.createElement("div");
@@ -589,11 +638,13 @@ function getSpell(id,feature,mastery) {
 			spellContent.appendChild(spellUpgrade);
 		}
 		
-		document.getElementById(id).appendChild(spellContent);
+		spellDiv.appendChild(spellContent);
 	} else {
 		//No Spell Found
 		var content = document.createElement("p");
 		content.innerHTML = "no spell found... <small><i>(" + id.substring(1) + ")</i></small>";
-		document.getElementById(id).appendChild(content);
+		spellDiv.appendChild(content);
 	}
+		
+	document.getElementById(target + "CharacterFeature").appendChild(spellDiv);
 }

@@ -1,4 +1,14 @@
-const weapon = {
+const item = {
+	"arrow":{
+		"name":"Arrow",
+		"type":"Ammunition",
+		"effect":"Arrows are used with a weapon that has the ammunition property to make a ranged attack."
+	},
+	"arrowFire":{
+		"name":"Arrow of Fire",
+		"type":"Ammunition",
+		"effect":"When using this arrows, deals +1d4 Fire Damage on hit."
+	},
 	"longbow": {
 		"name":"Longbow",
 		"type":"Martial Ranged Weapon",
@@ -28,5 +38,11 @@ const weapon = {
 			"name":"Vex",
 			"effect":" If you hit a creature with this weapon, you have Advantage on your next attack roll against that creature before the end of your next turn."
 		}
+	},
+	"studdedLeatherArmor": {
+		"name":"Studded Leather Armor",
+		"type":"Light Armor",
+		"effect":"While wearing, your Armor Class = 12 + your Dexterity modifier"
 	}
 }
+studdedLeatherArmor

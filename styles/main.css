@@ -75,5 +75,4 @@ p {
 }
 .darkMode:active {
 	background-color: var(--dark-background-color);
-
 }

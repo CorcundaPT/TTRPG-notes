@@ -6,7 +6,7 @@
 	<script src="scripts/main.js"></script>
 	<script src="scripts/character.js"></script>
 	<script src="characters/Sofia_Elanis.js"></script>
-	<script src="data/weapons.js"></script>
+	<script src="data/items.js"></script>
 	<script src="data/features.js"></script>
 	<script src="data/spells.js"></script>
 	
@@ -72,7 +72,7 @@
 		<!--Skills and Proficiencies Tab-->
 		<div id="characterTabProficiencies" style="display:block">
 			<!--Character Skills-->
-			<p class="character-proficiencies-title">Skills</p>
+			<p class="characterTabSubclass">Skills</p>
 			<div class="character-skill-list">
 				<!--Strength Skills-->
 				<div class="character-ability-strength character-skill-box">
@@ -125,7 +125,7 @@
 			</div>
 			
 			<!--Character Proficiencies-->
-			<p class="character-proficiencies-title">Proficiency</p>
+			<p class="characterTabSubclass">Proficiency</p>
 			<div class="character-proficiency-box">
 				<p class="character-proficiency-proficiency text-box"><i>Weapons:</i> <b id="characterWeaponProficiency">00</b></p>
 				<p class="character-proficiency-proficiency text-box"><i>Armor:</i> <b id="characterArmorProficiency">00</b></p>
@@ -139,44 +139,52 @@
 
 		<!--Features Description Tab-->
 		<!--
-			getFeature (id, featureID)
-			getWeapon (id, weaponID, Weapon Mastery[0,1])
+			getFeature (id, featureID, type of action[passive, action, bonusAction, time, reaction] or source)
+			getWeapon ("0", id, weaponID, Weapon Mastery[0,1], type of action[passive, action, bonusAction, time, reaction])
 			getSpell (id, spellID)
 		-->
 		<div id="characterTabFeatures" style="display:block">
-			<p class="characterFeatureSubclass">Passive Features</p>
-			<div id="fAlert" class="boxFeature featurePassive text-box">00</div>
-			<script>getFeature("fAlert",feature.alert)</script>
-			<div id="fDarkvision" class="boxFeature featurePassive text-box">00</div>
-			<script>getFeature("fDarkvision",feature.darkvision60)</script>
-			<div id="fFeyAncestry" class="boxFeature featurePassive text-box">00</div>
-			<script>getFeature("fFeyAncestry",feature.feyAncestry)</script>
-			<div id="fSneakAttack" class="boxFeature featurePassive text-box">00</div>
-			<script>getFeature("fSneakAttack",feature.sneakAttack)</script>
-			<div id="fTrance" class="boxFeature featurePassive text-box">00</div>
-			<script>getFeature("fTrance",feature.trance)</script>
+			<p id="passiveCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Passive Features</p>
+			<div id="passiveCharacterFeature"></div>
+			<script>getFeature("fAlert",feature.alert,"passive")</script>
+			<script>getFeature("fDarkvision",feature.darkvision60,"passive")</script>
+			<script>getFeature("fFeyAncestry",feature.feyAncestry,"passive")</script>
+			<script>getFeature("fSneakAttack",feature.sneakAttack,"passive")</script>
+			<script>getFeature("fTrance",feature.trance,"passive")</script>
 			
-			<p class="characterFeatureSubclass">Action Features</p>
-			<div id="fFireBolt" class="boxFeature featureAction text-box">00</div>
-			<script>getSpell("fFireBolt",spell.fireBolt)</script>
-			<div id="fLongbow" class="boxFeature featureAction text-box">00</div>
-			<script>getWeapon("fLongbow",weapon.longbow, 0)</script>
-			<div id="fShortbow" class="boxFeature featureAction text-box">00</div>
-			<script>getWeapon("fShortbow",weapon.shortbow, 1)</script>
-			<div id="fShortsword" class="boxFeature featureAction text-box")">00</div>
-			<script>getWeapon("fShortsword",weapon.shortsword,1)</script>
+			<p id="actionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Action Features</p>
+			<div id="actionCharacterFeature"></div>
+			<script>getSpell("fFireBolt",spell.fireBolt,"action")</script>
+			<script>getItem(0,"fLongbow",item.longbow, 0,"action")</script>
+			<script>getItem(0,"fShortbow",item.shortbow, 1,"action")</script>
+			<script>getItem(0,"fShortsword",item.shortsword,1,"action")</script>
 			
-			<p class="characterFeatureSubclass">Bonus Action Features</p>
-			<div id="fCunningAction" class="boxFeature featureBonusAction text-box">00</div>
-			<script>getFeature("fCunningAction", feature.cunningAction)</script>
+			<p id="bonusActionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Bonus Action Features</p>
+			<div id="bonusActionCharacterFeature"></div>
+			<script>getFeature("fCunningAction",feature.cunningAction,"bonusAction")</script>
 			
-			<p class="characterFeatureSubclass" style="display:none">Time to cast Features</p>
+			<p id="timeCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Time to cast Features</p>
+			<div id="timeCharacterFeature"></div>
 			
-			<p class="characterFeatureSubclass" style="display:none">Reaction Features</p>
+			
+			<p id="reactionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Reaction Features</p>
+			<div id="reactionCharacterFeature"></div>
 		</div>
 		<!--Inventory Tab-->
+		<!--
+			getWeapon (Quantaty, id, weaponID, Weapon Mastery[0,1], "inventory")
+		-->
+		<div id="characterTabInventory" style="display:block">
+		<p id="inventoryCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Inventory</p>
+		<div id="inventoryCharacterFeature"></div>
+		<script>getItem(99,"iArrow",item.arrow,0,"inventory")</script>
+		<script>getItem(5,"iArrowFire",item.arrowFire,0,"inventory")</script>
+		<script>getItem(1,"iLongbow",item.longbow,0,"inventory")</script>
+		<script>getItem(1,"iShortbow",item.shortbow,1,"inventory")</script>
+		<script>getItem(1,"iShortsword",item.shortsword,1,"inventory")</script>
+		<script>getItem(1,"iStuddedLeatherArmor",item.studdedLeatherArmor,0,"inventory")</script>
 		<!--Feature Source Tab-->
-		<div id="characterTabFeatures" style="display:block">
+		<div id="characterTabSource" style="display:block">
 			<!--Specie Features-->
 			<div></div>
 		</div>
