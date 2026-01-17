@@ -182,14 +182,14 @@ function characterStats() {
 	};
 	
 	//Print Strength Saving Throw
-	var strengthSave = strengthModifier + (characterProficiency * character.saves.strenght);
+	var strengthSave = strengthModifier + (characterProficiency * character.saves.strenght.proficiency) + character.saves.strenght.bonus;
 	if (strengthSave <0) {
 		document.getElementById("characterStrengthSave").innerHTML = strengthSave;
 	} else {
 		document.getElementById("characterStrengthSave").innerHTML = "+" + strengthSave;
 	};
 	//Print Strength Athletics skill
-	var strengthAthletics = strengthModifier + (characterProficiency * character.skill.athletics);
+	var strengthAthletics = strengthModifier + (characterProficiency * character.skill.athletics.proficiency) + character.skill.athletics.bonus;
 	if (strengthAthletics <0) {
 		document.getElementById("characterStrengthAthletics").innerHTML = strengthAthletics;
 	} else {
@@ -197,28 +197,28 @@ function characterStats() {
 	};
 	
 	//Print Dexterity Saving Throw
-	var dexteritySave = dexterityModifier + (characterProficiency * character.saves.dexterity);
+	var dexteritySave = dexterityModifier + (characterProficiency * character.saves.dexterity.proficiency) + character.saves.dexterity.bonus;
 	if (dexteritySave <0) {
 		document.getElementById("characterDexteritySave").innerHTML = dexteritySave;
 	} else {
 		document.getElementById("characterDexteritySave").innerHTML = "+" + dexteritySave;
 	};
 	//Print Dexterity Acrobatics skill
-	var dexterityAcrobatics = dexterityModifier + (characterProficiency * character.skill.acrobatics);
+	var dexterityAcrobatics = dexterityModifier + (characterProficiency * character.skill.acrobatics.proficiency) + character.skill.acrobatics.bonus;
 	if (dexterityAcrobatics <0) {
 		document.getElementById("characterDexterityAcrobatics").innerHTML = dexterityAcrobatics;
 	} else {
 		document.getElementById("characterDexterityAcrobatics").innerHTML = "+" + dexterityAcrobatics;
 	};
 	//Print Dexterity Sleight Of Hand skill
-	var dexteritySleightOfHand = dexterityModifier + (characterProficiency * character.skill.sleightOfHand);
+	var dexteritySleightOfHand = dexterityModifier + (characterProficiency * character.skill.sleightOfHand.proficiency) + character.skill.sleightOfHand.bonus;
 	if (dexteritySleightOfHand <0) {
 		document.getElementById("characterDexteritySleightOfHand").innerHTML = dexteritySleightOfHand;
 	} else {
 		document.getElementById("characterDexteritySleightOfHand").innerHTML = "+" + dexteritySleightOfHand;
 	};
 	//Print Dexterity Stealth skill
-	var dexterityStealth = dexterityModifier + (characterProficiency * character.skill.stealth);
+	var dexterityStealth = dexterityModifier + (characterProficiency * character.skill.stealth.proficiency) + character.skill.stealth.bonus;
 	if (dexterityStealth <0) {
 		document.getElementById("characterDexterityStealth").innerHTML = dexterityStealth;
 	} else {
@@ -226,7 +226,7 @@ function characterStats() {
 	};
 	
 	//Print Constitution Saving Throw
-	var constitutionSave = constitutionModifier + (characterProficiency * character.saves.constitution);
+	var constitutionSave = constitutionModifier + (characterProficiency * character.saves.constitution.proficiency) + character.saves.constitution.bonus;
 	if (constitutionSave <0) {
 		document.getElementById("characterConstitutionSave").innerHTML = constitutionSave;
 	} else {
@@ -234,42 +234,42 @@ function characterStats() {
 	};
 	
 	//Print Intelligence Saving Throw
-	var intelligenceSave = intelligenceModifier + (characterProficiency * character.saves.intelligence);
+	var intelligenceSave = intelligenceModifier + (characterProficiency * character.saves.intelligence.proficiency) + character.saves.intelligence.bonus;
 	if (intelligenceSave <0) {
 		document.getElementById("characterIntelligenceSave").innerHTML = intelligenceSave;
 	} else {
 		document.getElementById("characterIntelligenceSave").innerHTML = "+" + intelligenceSave;
 	};
 	//Print Intelligence Arcana skill
-	var intelligenceArcana = intelligenceModifier + (characterProficiency * character.skill.arcana);
+	var intelligenceArcana = intelligenceModifier + (characterProficiency * character.skill.arcana.proficiency) + character.skill.arcana.bonus;
 	if (intelligenceArcana <0) {
 		document.getElementById("characterIntelligenceArcana").innerHTML = intelligenceArcana;
 	} else {
 		document.getElementById("characterIntelligenceArcana").innerHTML = "+" + intelligenceArcana;
 	};
 	//Print Intelligence History skill
-	var intelligenceHistory = intelligenceModifier + (characterProficiency * character.skill.history);
+	var intelligenceHistory = intelligenceModifier + (characterProficiency * character.skill.history.proficiency) + character.skill.history.bonus;
 	if (intelligenceHistory <0) {
 		document.getElementById("characterIntelligenceHistory").innerHTML = intelligenceHistory;
 	} else {
 		document.getElementById("characterIntelligenceHistory").innerHTML = "+" + intelligenceHistory;
 	};
 	//Print Intelligence Investigation skill
-	var intelligenceInvestigation = intelligenceModifier + (characterProficiency * character.skill.investigation);
+	var intelligenceInvestigation = intelligenceModifier + (characterProficiency * character.skill.investigation.proficiency) + character.skill.investigation.bonus;
 	if (intelligenceInvestigation <0) {
 		document.getElementById("characterIntelligenceInvestigation").innerHTML = intelligenceInvestigation;
 	} else {
 		document.getElementById("characterIntelligenceInvestigation").innerHTML = "+" + intelligenceInvestigation;
 	};
 	//Print Intelligence Nature skill
-	var intelligenceNature = intelligenceModifier + (characterProficiency * character.skill.nature);
+	var intelligenceNature = intelligenceModifier + (characterProficiency * character.skill.nature.proficiency) + character.skill.nature.bonus;
 	if (intelligenceNature <0) {
 		document.getElementById("characterIntelligenceNature").innerHTML = intelligenceNature;
 	} else {
 		document.getElementById("characterIntelligenceNature").innerHTML = "+" + intelligenceNature;
 	};
 	//Print Intelligence Religion skill
-	var intelligenceReligion = intelligenceModifier + (characterProficiency * character.skill.religion);
+	var intelligenceReligion = intelligenceModifier + (characterProficiency * character.skill.religion.proficiency) + character.skill.religion.bonus;
 	if (intelligenceReligion <0) {
 		document.getElementById("characterIntelligenceReligion").innerHTML = intelligenceReligion;
 	} else {
@@ -277,42 +277,42 @@ function characterStats() {
 	};
 	
 	//Print Wisdom Saving Throw
-	var wisdomSave = wisdomModifier + (characterProficiency * character.saves.wisdom);
+	var wisdomSave = wisdomModifier + (characterProficiency * character.saves.wisdom.proficiency) + character.saves.wisdom.bonus;
 	if (wisdomSave <0) {
 		document.getElementById("characterWisdomSave").innerHTML = wisdomSave;
 	} else {
 		document.getElementById("characterWisdomSave").innerHTML = "+" + wisdomSave;
 	};
 	//Print Wisdom Animal Handling skill
-	var wisdomAnimalHandling = wisdomModifier + (characterProficiency * character.skill.animalHandling);
+	var wisdomAnimalHandling = wisdomModifier + (characterProficiency * character.skill.animalHandling.proficiency) + character.skill.animalHandling.bonus;
 	if (wisdomAnimalHandling <0) {
 		document.getElementById("characterWisdomAnimalHandling").innerHTML = wisdomAnimalHandling;
 	} else {
 		document.getElementById("characterWisdomAnimalHandling").innerHTML = "+" + wisdomAnimalHandling;
 	};
 	//Print Wisdom Insight skill
-	var wisdomInsight = wisdomModifier + (characterProficiency * character.skill.insight);
+	var wisdomInsight = wisdomModifier + (characterProficiency * character.skill.insight.proficiency) + character.skill.insight.bonus;
 	if (wisdomInsight <0) {
 		document.getElementById("characterWisdomInsight").innerHTML = wisdomInsight;
 	} else {
 		document.getElementById("characterWisdomInsight").innerHTML = "+" + wisdomInsight;
 	};
 	//Print Wisdom Medicine skill
-	var wisdomMedicine = wisdomModifier + (characterProficiency * character.skill.medicine);
+	var wisdomMedicine = wisdomModifier + (characterProficiency * character.skill.medicine.proficiency) + character.skill.medicine.bonus;
 	if (wisdomMedicine <0) {
 		document.getElementById("characterWisdomMedicine").innerHTML = wisdomMedicine;
 	} else {
 		document.getElementById("characterWisdomMedicine").innerHTML = "+" + wisdomMedicine;
 	};
 	//Print Wisdom Perception skill
-	var wisdomPerception = wisdomModifier + (characterProficiency * character.skill.perception);
+	var wisdomPerception = wisdomModifier + (characterProficiency * character.skill.perception.proficiency) + character.skill.perception.bonus;
 	if (wisdomPerception <0) {
 		document.getElementById("characterWisdomPerception").innerHTML = wisdomPerception;
 	} else {
 		document.getElementById("characterWisdomPerception").innerHTML = "+" + wisdomPerception;
 	};
 	//Print Wisdom Survival skill
-	var wisdomSurvival = wisdomModifier + (characterProficiency * character.skill.survival);
+	var wisdomSurvival = wisdomModifier + (characterProficiency * character.skill.survival.proficiency) + character.skill.survival.bonus;
 	if (wisdomSurvival <0) {
 		document.getElementById("characterWisdomSurvival").innerHTML = wisdomSurvival;
 	} else {
@@ -320,35 +320,35 @@ function characterStats() {
 	};
 	
 	//Print Charisma Saving Throw
-	var charismaSave = charismaModifier + (characterProficiency * character.saves.charisma);
+	var charismaSave = charismaModifier + (characterProficiency * character.saves.charisma.proficiency) + character.saves.charisma.bonus;
 	if (charismaSave <0) {
 		document.getElementById("characterCharismaSave").innerHTML = charismaSave;
 	} else {
 		document.getElementById("characterCharismaSave").innerHTML = "+" + charismaSave;
 	};
 	//Print Charisma Deception skill
-	var charismaDeception = charismaModifier + (characterProficiency * character.skill.deception);
+	var charismaDeception = charismaModifier + (characterProficiency * character.skill.deception.proficiency) + character.skill.deception.bonus;
 	if (charismaDeception <0) {
 		document.getElementById("characterCharismaDeception").innerHTML = charismaDeception;
 	} else {
 		document.getElementById("characterCharismaDeception").innerHTML = "+" + charismaDeception;
 	};
 	//Print Charisma Intimidation skill
-	var charismaIntimidation = charismaModifier + (characterProficiency * character.skill.intimidation);
+	var charismaIntimidation = charismaModifier + (characterProficiency * character.skill.intimidation.proficiency) + character.skill.intimidation.bonus;
 	if (charismaIntimidation <0) {
 		document.getElementById("characterCharismaIntimidation").innerHTML = charismaIntimidation;
 	} else {
 		document.getElementById("characterCharismaIntimidation").innerHTML = "+" + charismaIntimidation;
 	};
 	//Print Charisma Performance skill
-	var charismaPerformance = charismaModifier + (characterProficiency * character.skill.performance);
+	var charismaPerformance = charismaModifier + (characterProficiency * character.skill.performance.proficiency) + character.skill.performance.bonus;
 	if (charismaPerformance <0) {
 		document.getElementById("characterCharismaPerformance").innerHTML = charismaPerformance;
 	} else {
 		document.getElementById("characterCharismaPerformance").innerHTML = "+" + charismaPerformance;
 	};
 	//Print Charisma Persuasion skill
-	var charismaPersuasion = charismaModifier + (characterProficiency * character.skill.persuasion);
+	var charismaPersuasion = charismaModifier + (characterProficiency * character.skill.persuasion.proficiency) + character.skill.persuasion.bonus;
 	if (charismaPersuasion <0) {
 		document.getElementById("characterCharismaPersuasion").innerHTML = charismaPersuasion;
 	} else {

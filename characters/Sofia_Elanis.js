@@ -15,32 +15,104 @@ const character = {
 		"charisma": 10
 	},
 	"saves": {
-		"strenght": 0,
-		"dexterity": 1,
-		"constitution": 0,
-		"intelligence": 1,
-		"wisdom": 0,
-		"charisma": 0
+		"strenght": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"dexterity": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"constitution": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"intelligence": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"wisdom": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"charisma": {
+			"proficiency": 0,
+			"bonus": 0
+		}
 	},
 	"skill": {
-		"acrobatics": 0,
-		"animalHandling": 1,
-		"arcana": 0,
-		"athletics": 0,
-		"deception": 1,
-		"history": 0,
-		"insight": 1,
-		"intimidation": 0,
-		"investigation": 1,
-		"medicine": 0,
-		"nature": 1,
-		"perception": 2,
-		"performance": 0,
-		"persuasion": 0,
-		"religion": 0,
-		"sleightOfHand": 1,
-		"stealth": 2,
-		"survival": 1
+		"acrobatics": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"animalHandling": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"arcana": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"athletics": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"deception": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"history": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"insight": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"intimidation": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"investigation": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"medicine": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"nature": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"perception": {
+			"proficiency": 2,
+			"bonus": 0
+		},
+		"performance": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"persuasion": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"religion": {
+			"proficiency": 0,
+			"bonus": 0
+		},
+		"sleightOfHand": {
+			"proficiency": 1,
+			"bonus": 0
+		},
+		"stealth": {
+			"proficiency": 2,
+			"bonus": 0
+		},
+		"survival": {
+			"proficiency": 1,
+			"bonus": 0
+		}
 	},
 	"proficiency": {
 		"weapon": ["Simple Weapons","Martial Weapon (with finesse or light)", "Longbow"],
