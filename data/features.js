@@ -1,4 +1,9 @@
 const feature = {
+	"abilityScoreImprovementDexConInt": {
+		"name":"Ability Score Improvement",
+		"type":"background",
+		"effect":["Increase one of the following ability scores by 2 and a different one by 1, or increase all three by 1.","Dexterity, Constitution, Intelligence"]
+	},
 	"alert": {
 		"name":"Alert",
 		"type":"feat",
@@ -35,6 +40,11 @@ const feature = {
 		"type":"specie feature",
 		"effect":["You have proficiency in the Insight, Perception, or Survival skill."]
 	},
+	"skillProficiencyCriminal": {
+		"name":"Skill Proficiency",
+		"type":"background",
+		"effect":["You gain proficiency in the Sleight of Hand, and Stealth skill."]
+	},
 	"sneakAttack": {
 		"name":"Sneak Attack",
 		"type":"class feature",
@@ -44,6 +54,11 @@ const feature = {
 		"name":"Thieves' Cant",
 		"type":"class feature",
 		"effect":["You picked up various languages in the communities where you plied your roguish talents. You know Thieves' Cant and one other language of your choice."]
+	},
+	"toolProficiencyCriminal": {
+		"name":"Tool Proficiency",
+		"type":"background",
+		"effect":["You gain proficiency in the Thieves' Tools."]
 	},
 	"trance": {
 		"name":"Trance",

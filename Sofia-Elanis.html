@@ -186,15 +186,23 @@
 		</div>	
 		
 		<!--Feature Source Tab-->
-		<div id="characterTabCharacter" style="display:none">
+		<div id="characterTabCharacter" style="display:block">
 			<!--Specie Features-->
-			<p id="specieCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Specie Features</p>
+			<p id="specieCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Elf (High Elf) Features</p>
 			<div id="specieCharacterFeature"></div>
 			<script>getFeature("sDarkvision60",feature.darkvision60,"specie")</script>
 			<script>getFeature("sElvenLineageHighElf",feature.elvenLineageHighElf,"specie",["Firebolt"])</script>
 			<script>getFeature("sFeyAncestry",feature.feyAncestry,"specie")</script>
 			<script>getFeature("sKeenSenses",feature.keenSenses,"specie")</script>
 			<script>getFeature("sTrance",feature.trance,"specie")</script>
+			
+			<!--Background Features-->
+			<p id="backgroundCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Criminal Features</p>
+			<div id="backgroundCharacterFeature"></div>
+			<script>getFeature("sAbilityScoreImprovementCriminal",feature.abilityScoreImprovementDexConInt,"background",["+1 Dexterity", "+2 Intelligence"])</script>
+			<script>getFeature("sAlert",feature.alert,"background")</script>
+			<script>getFeature("sSkillProficiencyCriminal",feature.skillProficiencyCriminal,"background")</script>
+			<script>getFeature("sToolProficiencyCriminal",feature.toolProficiencyCriminal,"background")</script>
 			
 			<!--Rogue Level 1-->
 			<p id="rogue1CharacterFeatureTitle" class="characterTabSubclass" style="display:block">1st Level Rogue Features</p>
