@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/character5e.css">
+
+	<script src="scripts/main.js"></script>
+	<script src="scripts/character.js"></script>
+	<script src="characters/Thalia-Elora.js"></script>
+	<script src="data/items.js"></script>
+	<script src="data/features.js"></script>
+	<script src="data/spells.js"></script>
+	
+	<body onload="characterStats()">
+		<!--Night Mode-->
+		<input type="button" onclick="swapModes()" id="swapMode" class="toggleMode" style="top:5px; right:5px">
+		
+		<!--Character Name-->
+		<p id="characterName" class="character-name text-box">Error Loading...</p>
+		
+		<!--Character Specie, Background, Level, Class-->
+		<div class="character-info1">
+			<p class="character-info-details text-box"><i>Specie:</i> <b id="characterSpecie">00</b></p>
+			<p class="character-info-details text-box"><i>Level:</i> <b id="characterLevel">00</b></p>
+			<p class="character-info-details text-box"><i>Background:</i> <b id="characterBackground">00</b></p>
+		</div>
+		<div class="character-info2">
+			<p class="character-info-details text-box"><i>Class:</i> <b id="characterClass">00</b></p>
+		</div>
+		
+		<!--Character Ability Scores-->
+		<div class="character-ability">
+			<div class="character-ability-strength character-ability-box">
+				<p class="character-ability-name">Strength</p>
+				<p id="characterStrengthModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterStrengthScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-dexterity character-ability-box">
+				<p class="character-ability-name">Dexterity</p>
+				<p id="characterDexterityModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterDexterityScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-constitution character-ability-box">
+				<p class="character-ability-name">Constitution</p>
+				<p id="characterConstitutionModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterConstitutionScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-intelligence character-ability-box">
+				<p class="character-ability-name">Intelligence</p>
+				<p id="characterIntelligenceModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterIntelligenceScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-wisdom character-ability-box">
+				<p class="character-ability-name">Wisdom</p>
+				<p id="characterWisdomModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterWisdomScore" class="character-ability-score">00</p>
+			</div>
+			<div class="character-ability-charisma character-ability-box">
+				<p class="character-ability-name">Charisma</p>
+				<p id="characterCharismaModifier" class="character-ability-modifier text-box">00</p>
+				<p id="characterCharismaScore" class="character-ability-score">00</p>
+			</div>
+		</div>
+		
+		<!--buttons to swap between (Skills and Proficiencies), (Features description), (Inventory), (Feature Source)-->
+		<div class="character-tab-button">
+			<input type="button" value="Proficiencies" onclick="characterSwapTags(this.value)" id="buttonTabProficiencies" class="character-tab-button-input input-active">
+			<input type="button" value="Features" onclick="characterSwapTags(this.value)" id="buttonTabFeatures" class="character-tab-button-input">
+			<input type="button" value="Inventory" onclick="characterSwapTags(this.value)" id="buttonTabInventory" class="character-tab-button-input">
+			<input type="button" value="Character" onclick="characterSwapTags(this.value)" id="buttonTabCharacter" class="character-tab-button-input">
+		</div>
+		
+		<!--Skills and Proficiencies Tab-->
+		<div id="characterTabProficiencies" style="display:block">
+			<!--Character Skills-->
+			<p class="characterTabSubclass">Skills</p>
+			<div class="character-skill-list">
+				<!--Strength Skills-->
+				<div class="character-ability-strength character-skill-box">
+					<div class="character-skill-ability">Strength</div>
+					<div class="character-skill-save text-box"><p id="characterStrengthSave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+					<div class="character-skill-skill text-box"><p id="characterStrengthAthletics" class="character-skill-bonus text-box">00</p> Athletics</div>
+				</div>
+				<!--Dexterity Skills-->
+				<div class="character-ability-dexterity character-skill-box">
+					<div class="character-skill-ability">Dexterity</div>
+					<div class="character-skill-save text-box"><p id="characterDexteritySave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+					<div class="character-skill-skill text-box"><p id="characterDexterityAcrobatics" class="character-skill-bonus text-box">00</p> Acrobatics</div>
+					<div class="character-skill-skill text-box"><p id="characterDexteritySleightOfHand" class="character-skill-bonus text-box">00</p> Sleight of Hand</div>
+					<div class="character-skill-skill text-box"><p id="characterDexterityStealth" class="character-skill-bonus text-box">00</p> Stealth</div>
+				</div>
+				<!--Constitution Skills-->
+				<div class="character-ability-constitution character-skill-box">
+					<div class="character-skill-ability">Constitution</div>
+					<div class="character-skill-save text-box"><p id="characterConstitutionSave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+				</div>
+				<!--Intelligence Skills-->
+				<div class="character-ability-intelligence character-skill-box" class="character-skill-strength character-skill-box text-box">
+					<div class="character-skill-ability">Intelligence</div>
+					<div class="character-skill-save text-box"><p id="characterIntelligenceSave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+					<div class="character-skill-skill text-box"><p id="characterIntelligenceArcana"  class="character-skill-bonus text-box">00</p> Arcana</div>
+					<div class="character-skill-skill text-box"><p id="characterIntelligenceHistory" class="character-skill-bonus text-box">00</p> History</div>
+					<div class="character-skill-skill text-box"><p id="characterIntelligenceInvestigation" class="character-skill-bonus text-box">00</p> Investigation</div>
+					<div class="character-skill-skill text-box"><p id="characterIntelligenceNature" class="character-skill-bonus text-box">00</p> Nature</div>
+					<div class="character-skill-skill text-box"><p id="characterIntelligenceReligion" class="character-skill-bonus text-box">00</p> Religion</div>
+				</div>
+				<!--Wisdom Skills-->
+				<div class="character-ability-wisdom character-skill-box">
+					<div class="character-skill-ability">Wisdom</div>
+					<div class="character-skill-save text-box"><p id="characterWisdomSave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+					<div class="character-skill-skill text-box"><p id="characterWisdomAnimalHandling" class="character-skill-bonus text-box">00</p> Animal Handling</div>
+					<div class="character-skill-skill text-box"><p id="characterWisdomInsight" class="character-skill-bonus text-box">00</p> Insight</div>
+					<div class="character-skill-skill text-box"><p id="characterWisdomMedicine" class="character-skill-bonus text-box">00</p> Medicine</div>
+					<div class="character-skill-skill text-box"><p id="characterWisdomPerception" class="character-skill-bonus text-box">00</p> Perception</div>
+					<div class="character-skill-skill text-box"><p id="characterWisdomSurvival" class="character-skill-bonus text-box">00</p> Survival</div>
+				</div>
+				<!--Charisma Skills-->
+				<div class="character-ability-charisma character-skill-box">
+					<div class="character-skill-ability">Charisma</div>
+					<div class="character-skill-save text-box"><p id="characterCharismaSave" class="character-skill-bonus text-box">00</p> Saving Throw</div>
+					<div class="character-skill-skill text-box"><p id="characterCharismaDeception" class="character-skill-bonus text-box">00</p> Deception</div>
+					<div class="character-skill-skill text-box"><p id="characterCharismaIntimidation" class="character-skill-bonus text-box">00</p> Intimidation</div>
+					<div class="character-skill-skill text-box"><p id="characterCharismaPerformance" class="character-skill-bonus text-box">00</p> Performance</div>
+					<div class="character-skill-skill text-box"><p id="characterCharismaPersuasion" class="character-skill-bonus text-box">00</p> Persuasion</div>
+				</div>
+			</div>
+			
+			<!--Character Proficiencies-->
+			<p class="characterTabSubclass">Proficiency</p>
+			<div class="character-proficiency-box">
+				<p class="character-proficiency-proficiency text-box"><i>Weapons:</i> <b id="characterWeaponProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Armor:</i> <b id="characterArmorProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Tools:</i> <b id="characterToolsProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Senses:</i> <b id="characterSensesProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Language:</i> <b id="characterLanguageProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Saves:</i> <b id="characterSavesProficiency">00</b></p>
+				<p class="character-proficiency-proficiency text-box"><i>Skills:</i> <b id="characterSkillsProficiency">00</b></p>
+			</div>
+		</div>
+
+		<!--Features Description Tab-->
+		<!--
+			getFeature (id, featureID, type of action[passive, action, bonusAction, time, reaction] or source)
+			getWeapon ("0", id, weaponID, Weapon Mastery[0,1], type of action[passive, action, bonusAction, time, reaction])
+			getSpell (id, spellID)
+		-->
+		<div id="characterTabFeatures" style="display:none">
+			<p id="passiveCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Passive Features</p>
+			<div id="passiveCharacterFeature"></div>
+			<script>getFeature("fDarkvision120",feature.darkvision120,"passive")</script>
+			<script>getFeature("fFeyAncestry",feature.feyAncestry,"passive")</script>
+			<script>getFeature("fHealer",feature.healer,"passive")</script>
+			<script>getFeature("fTrance",feature.trance,"passive")</script>
+			
+			<p id="actionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Action Features</p>
+			<div id="actionCharacterFeature"></div>
+			<script>getSpell("fCureWounds",spell.cureWounds,"action")</script>
+			<script>getFeature("fDivineSpark",feature.divineSpark,"action")</script>
+			<script>getSpell("fGuidance",spell.guidance,"action")</script>
+			<script>getSpell("fGuidingBolt",spell.guidingBolt,"action")</script>
+			<script>getItem(0,"fMace",item.mace, 0,"action")</script>
+			<script>getSpell("fMageHand",spell.mageHand,"action")</script>
+			<script>getSpell("fResistance",spell.resistance,"action")</script>
+			<script>getSpell("fThaumaturgy",spell.thaumaturgy,"action")</script>
+			<script>getSpell("fTollTheDead",spell.tollTheDead,"action")</script>
+			<script>getFeature("fTurnUndead",feature.turnUndead,"action")</script>
+			
+			<p id="bonusActionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Bonus Action Features</p>
+			<div id="bonusActionCharacterFeature"></div>
+			<script>getSpell("fHealingWord",spell.healingWord,"bonusAction")</script>
+			<script>getSpell("fShieldOfFaith",spell.shieldOfFaith,"bonusAction")</script>
+			
+			<p id="timeCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Time to cast Features</p>
+			<div id="timeCharacterFeature"></div>
+			
+			
+			<p id="reactionCharacterFeatureTitle" class="characterTabSubclass" style="display:none">Reaction Features</p>
+			<div id="reactionCharacterFeature"></div>
+		</div>
+		<!--Inventory Tab-->
+		<!--
+			getWeapon (Quantaty, id, weaponID, Weapon Mastery[0,1], "inventory")
+		-->
+		<div id="characterTabInventory" style="display:none">
+			<p id="inventoryCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Inventory</p>
+			<div id="inventoryCharacterFeature"></div>
+			<script>getItem(1,"iHealersKit",item.healersKit,0,"inventory")</script>
+			<script>getItem(1,"iMace",item.mace,0,"inventory")</script>
+			<script>getItem(2,"iScrollOfMageHand",item.scrollOfMageHand,0,"inventory")</script>
+		</div>	
+		
+		<!--Feature Source Tab-->
+		<div id="characterTabCharacter" style="display:none">
+			<!--Specie Features-->
+			<p id="specieCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Elf (Drow) Features</p>
+			<div id="specieCharacterFeature"></div>
+			<script>getFeature("sDarkvision120",feature.darkvision120,"specie")</script>
+			<script>getFeature("sElvenLineageDrow",feature.elvenLineageDrow,"specie")</script>
+			<script>getFeature("sFeyAncestry",feature.feyAncestry,"specie")</script>
+			<script>getFeature("sKeenSenses",feature.keenSenses,"specie")</script>
+			<script>getFeature("sTrance",feature.trance,"specie")</script>
+			
+			<!--Background Features-->
+			<p id="backgroundCharacterFeatureTitle" class="characterTabSubclass" style="display:block">Criminal Features</p>
+			<div id="backgroundCharacterFeature"></div>
+			<script>getFeature("sAbilityScoreImprovementHermit",feature.abilityScoreImprovementConWisCha,"background",["+2 Constitution", "+1 Wisdom"])</script>
+			<script>getFeature("sHealer",feature.healer,"background")</script>
+			<script>getFeature("sSkillProficiencyHermit",feature.skillProficiencyHermit,"background")</script>
+			<script>getFeature("sToolProficiencyHermit",feature.toolProficiencyHermit,"background")</script>
+			
+			<!--Rogue Level 1-->
+			<p id="cleric1CharacterFeatureTitle" class="characterTabSubclass" style="display:block">1st Level Cleric Features</p>
+			<div id="cleric1CharacterFeature"></div>
+			<script>getFeature("cleric1Spellcasting",feature.spellcastingCleric,"cleric1",["Perception","Stealth"])</script>
+			<script>getFeature("cleric1DivineOrder",feature.divineOrder,"cleric1")</script>
+			
+			<!--Rogue Level 2-->
+			<p id="cleric2CharacterFeatureTitle" class="characterTabSubclass" style="display:block">2nd Level Cleric Features</p>
+			<div id="cleric2CharacterFeature"></div>
+			<script>getFeature("cleric2ChannelDivinity",feature.channelDivinity,"cleric2")</script>
+		</div>
+	</body>
+</html>

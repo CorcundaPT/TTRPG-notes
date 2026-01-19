@@ -9,6 +9,11 @@ const item = {
 		"type":"Ammunition",
 		"effect":"When using this arrows, deals +1d4 Fire Damage on hit."
 	},
+	"healersKit":{
+		"name":"Healer's Kit",
+		"type":"Adventuring Gear",
+		"effect":"A Healer's Kit has ten uses. As a Utilize action, you can expend one of its uses to stabilize an Unconscious creature that has 0 Hit Points without needing to make a Wisdom (Medicine) check."
+	},
 	"longbow": {
 		"name":"Longbow",
 		"type":"Martial Ranged Weapon",
@@ -18,6 +23,22 @@ const item = {
 			"name":"Slow",
 			"effect":" If you hit a creature with this weapon, you reduce its Speed by 10ft until the start of your next turn. If the creature is hit more than once, the Speed reduction doesn’t exceed 10ft."
 		}
+	},
+	"mace": {
+		"name":"Mace",
+		"type":"Simple Melee Weapon",
+		"damage":"1d6 Bludgeoning Damage",
+		"properties":"",
+		"mastery":{
+			"name":"Sap",
+			"effect":" If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+		}
+	},
+	"scrollOfMageHand":{
+		"name":"Scroll of Mage Hand",
+		"type":"Scroll",
+		"effect":"Each Scroll of Mage Hand works as you have cast Mage Hand spell and is consumed on use."
+	,
 	},
 	"shortbow": {
 		"name":"Shortbow",

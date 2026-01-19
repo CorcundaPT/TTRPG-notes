@@ -392,34 +392,34 @@ function characterStats() {
 	
 	//Print Saves Proficiency
 	var savesProficiencyArray = [];
-	if(character.saves.strenght!=0) {savesProficiencyArray.push(" Strength")};
-	if(character.saves.dexterity!=0) {savesProficiencyArray.push(" Dexterity")};
-	if(character.saves.constitution!=0) {savesProficiencyArray.push(" Constitution")};
-	if(character.saves.intelligence!=0) {savesProficiencyArray.push(" Intelligence")};
-	if(character.saves.wisdom!=0) {savesProficiencyArray.push(" Wisdom")};
-	if(character.saves.charisma!=0) {savesProficiencyArray.push(" Charisma")};
+	if(character.saves.strenght.proficiency!=0) {savesProficiencyArray.push(" Strength")};
+	if(character.saves.dexterity.proficiency!=0) {savesProficiencyArray.push(" Dexterity")};
+	if(character.saves.constitution.proficiency!=0) {savesProficiencyArray.push(" Constitution")};
+	if(character.saves.intelligence.proficiency!=0) {savesProficiencyArray.push(" Intelligence")};
+	if(character.saves.wisdom.proficiency!=0) {savesProficiencyArray.push(" Wisdom")};
+	if(character.saves.charisma.proficiency!=0) {savesProficiencyArray.push(" Charisma")};
 	document.getElementById("characterSavesProficiency").innerHTML = savesProficiencyArray;
 	
 	//Print Saves Proficiency
 	var savesProficiencyArray = [];
-	if(character.skill.acrobatics!=0) {savesProficiencyArray.push(" Acrobatics")};
-	if(character.skill.animalHandling!=0) {savesProficiencyArray.push(" Animal Handling")};
-	if(character.skill.arcana!=0) {savesProficiencyArray.push(" Arcana")};
-	if(character.skill.athletics!=0) {savesProficiencyArray.push(" Athletics")};
-	if(character.skill.deception!=0) {savesProficiencyArray.push(" Deception")};
-	if(character.skill.history!=0) {savesProficiencyArray.push(" History")};
-	if(character.skill.insight!=0) {savesProficiencyArray.push(" Insight")};
-	if(character.skill.intimidation!=0) {savesProficiencyArray.push(" Intimidation")};
-	if(character.skill.investigation!=0) {savesProficiencyArray.push(" Investigation")};
-	if(character.skill.medicine!=0) {savesProficiencyArray.push(" Medicine")};
-	if(character.skill.nature!=0) {savesProficiencyArray.push(" Nature")};
-	if(character.skill.perception!=0) {savesProficiencyArray.push(" Perception")};
-	if(character.skill.performance!=0) {savesProficiencyArray.push(" Performance")};
-	if(character.skill.persuasion!=0) {savesProficiencyArray.push(" Persuasion")};
-	if(character.skill.religion!=0) {savesProficiencyArray.push(" Religion")};
-	if(character.skill.sleightOfHand!=0) {savesProficiencyArray.push(" Sleight Of Hand")};
-	if(character.skill.stealth!=0) {savesProficiencyArray.push(" Stealth")};
-	if(character.skill.survival!=0) {savesProficiencyArray.push(" Survival")};
+	if(character.skill.acrobatics.proficiency!=0) {savesProficiencyArray.push(" Acrobatics")};
+	if(character.skill.animalHandling.proficiency!=0) {savesProficiencyArray.push(" Animal Handling")};
+	if(character.skill.arcana.proficiency!=0) {savesProficiencyArray.push(" Arcana")};
+	if(character.skill.athletics.proficiency!=0) {savesProficiencyArray.push(" Athletics")};
+	if(character.skill.deception.proficiency!=0) {savesProficiencyArray.push(" Deception")};
+	if(character.skill.history.proficiency!=0) {savesProficiencyArray.push(" History")};
+	if(character.skill.insight.proficiency!=0) {savesProficiencyArray.push(" Insight")};
+	if(character.skill.intimidation.proficiency!=0) {savesProficiencyArray.push(" Intimidation")};
+	if(character.skill.investigation.proficiency!=0) {savesProficiencyArray.push(" Investigation")};
+	if(character.skill.medicine.proficiency!=0) {savesProficiencyArray.push(" Medicine")};
+	if(character.skill.nature.proficiency!=0) {savesProficiencyArray.push(" Nature")};
+	if(character.skill.perception.proficiency!=0) {savesProficiencyArray.push(" Perception")};
+	if(character.skill.performance.proficiency!=0) {savesProficiencyArray.push(" Performance")};
+	if(character.skill.persuasion.proficiency!=0) {savesProficiencyArray.push(" Persuasion")};
+	if(character.skill.religion.proficiency!=0) {savesProficiencyArray.push(" Religion")};
+	if(character.skill.sleightOfHand.proficiency!=0) {savesProficiencyArray.push(" Sleight Of Hand")};
+	if(character.skill.stealth.proficiency!=0) {savesProficiencyArray.push(" Stealth")};
+	if(character.skill.survival.proficiency!=0) {savesProficiencyArray.push(" Survival")};
 	document.getElementById("characterSkillsProficiency").innerHTML = savesProficiencyArray;
 }
 
