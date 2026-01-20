@@ -37,7 +37,7 @@ body {
 	margin-bottom: 300px;
 	
 	font-size: var(--font-size-medium);
-	font-family: monospace, "Lucida Console", "Courier New";
+	font-family: Arial, sans-serif;
 	
 	background-color: var(--light-background-color);
 	color: var(--light-text-color);
@@ -77,3 +77,4 @@ p {
 	background-color: var(--dark-background-color);
 
 }
+
