@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Elanis</title>
+		<title>Elora</title>
 		<link rel="icon" type="image/x-icon" href="img/webIcon.png">
 	</head>
 	<!--classes-->
@@ -19,11 +19,11 @@
 	<script src="data/spells.js"></script>
 	
 	<!--character-->
-	<script src="characters/Sofia-Elanis.js"></script>
-	<script src="data/elf-highElf.js"></script>
-	<script src="data/criminal.js"></script>
-	<script src="data/rogue.js"></script>
-	<script src="data/rogue-soulknife.js"></script>
+	<script src="characters/Thalia-Elora.js"></script>
+	<script src="data/elf-drow.js"></script>
+	<script src="data/hermit.js"></script>
+	<script src="data/cleric.js"></script>
+	<script src="data/cleric-knowledge.js"></script>
 	
 	<body onload="loadCharacter()">
 		<!--Character Info-->
@@ -315,7 +315,6 @@
 				</div>
 			</div>
 			<p id="passiveTitle" class="title-tab" style="display:none">Passive</p>
-			<!--ordem das action: Specie, Background, Weapons, Items, Feats, Class, Spells-->
 			<div id="passive" class="actions-tab"></div>
 				<!--[target, type, data.item, selected, extra]-->
 				<script>
@@ -324,39 +323,56 @@
 					getAction('passive','specie',specie.feyAncestry);
 					getAction('passive','specie',specie.trance);
 					//Feat
-					getAction('passive','feat',feat.alert);
-					//Class
-					getAction('passive','class',rogueSubclass.psiBolsteredKnack,'rogue');
-					getAction('passive','class',rogue.sneakAttack,'rogue');
+					getAction('passive','feat',feat.healerHealingRerolls);
 				</script>
 			<p id="actionTitle" class="title-tab" style="display:none">Action</p>
 			<div id="action" class="actions-tab"></div>
 				<!--[target, type, data.item, extra]-->
 				<script>
 					//Weapon
-					getAction('action','weapon',weapon.longbow,0);
-					getAction('action','weapon',weapon.shortbow,1);
-					getAction('action','weapon',weapon.shortsword,1);
+					getAction('action','weapon',weapon.mace,0);
+					//Items
+					getAction('action','item',item.healersKit);
+					getAction('action','spell',spell.mageHand,'scroll');
+					//Feat
+					getAction('action','feat',feat.healerBattleMedic);
 					//Class
-					getAction('action','class',rogueSubclass.psychicWhispers,'rogue');
-					getAction('action','class',rogueSubclass.psychicBladesWeapon,'rogue');
+					getAction('action','class',cleric.divineSpark,'cleric');
+					getAction('action','class',clericSubclass.mindMagic,'cleric');
+					getAction('action','class',cleric.turnUndead,'cleric');
 					//Cantrips
-					getAction('action','spell',spell.fireBolt,'Any');
+					getAction('action','spell',spell.dancingLights,'Any');
+					getAction('action','spell',spell.light,'Wisdom');
+					getAction('action','spell',spell.thaumaturgy,'Wisdom');
+					getAction('action','spell',spell.tollTheDead,'Wisdom');
 					//1st Level
-					getAction('action','spell',spell.detectMagic,'Any');
+					getAction('action','spell',spell.command,'Wisdom');
+					getAction('action','spell',spell.comprehendLanguages,'Wisdom');
+					getAction('action','spell',spell.cureWounds,'Wisdom');
+					getAction('action','spell',spell.detectMagic,'Wisdom');
+					getAction('action','spell',spell.faerieFire,'Any');
+					getAction('action','spell',spell.guidingBolt,'Wisdom');
+					//2nd Level
+					getAction('action','spell',spell.blindnessDeafness,'Wisdom');
+					getAction('action','spell',spell.detectThoughts,'Wisdom');
+					getAction('action','spell',spell.findTraps,'Wisdom');
+					getAction('action','spell',spell.mindSpike,'Wisdom');
 				</script>
 			<p id="bonusActionTitle" class="title-tab" style="display:none">Bonus Action</p>
 			<div id="bonusAction" class="actions-tab"></div>
 				<!--[target, type, data.item, selected, extra]-->
 				<script>
-					//Class
-					getAction('bonusAction','class',rogue.cunningAction,'rogue');
-					getAction('bonusAction','class',rogue.steadyAim,'rogue');
+					//1st Level
+					getAction('bonusAction','spell',spell.shieldOfFaith);
 				</script>
 			<p id="castTimeTitle" class="title-tab" style="display:none">Time to cast</p>
 			<div id="castTime" class="actions-tab"></div>
 				<!--[target, type, data.item, selected, extra]-->
 				<script>
+					//1st Level
+					getAction('castTime','spell',spell.identify);
+					//2nd Level
+					getAction('castTime','spell',spell.prayerOfHealing);
 				</script>
 			<p id="reactionTitle" class="title-tab" style="display:none">Reaction</p>
 			<div id="reaction" class="actions-tab"></div>
@@ -388,12 +404,12 @@
 			<div id="inventory" class="inventory";>
 				<!--[type,quantaty,item,extra,equiped]-->
 				<script>
-					getInventory('item','&infin;',item.arrow);
-					getInventory('item',5,item.arrowFire);
-					getInventory('weapon',1,weapon.longbow,0);
-					getInventory('weapon',1,weapon.shortbow,1);
-					getInventory('weapon',1,weapon.shortsword,1);
-					getInventory('armor',1,armor.studdedLeatherArmor,0,1);
+					getInventory('armor',1,armor.chainMail,0,1);
+					getInventory('item',1,item.healersKit);
+					getInventory('weapon',1,weapon.mace,0);
+					getInventory('necklaceAttune',1,item.necklaceMagicAttunement,["Tongues","You can cast time spell without speding spellslots any amount of times"]);
+					getInventory('armor',1,armor.resizebleLeather);
+					getInventory('scroll',2,item.scroll,'Mage Hand');
 				</script>
 			</div>
 		</div>
@@ -411,23 +427,21 @@
 				getFeature('specie',specie.trance);
 				
 				getTitle('background',backgroundName);
-				getFeature('background',background.abilityScoreImprovement,"+2 Constitution, +1 Wisdom");
-				getFeature('background',feat.alert);
+				getFeature('background',background.abilityScoreImprovement,'+2 Constitution, +1 Wisdom');
+				getFeature('background',feat.healer);
 				getFeature('background',background.skillProficiency);
 				getFeature('background',background.toolProficiency);
 				
-				getTitle('rogue','Rogue');
-				getFeature('rogue',rogue.cunningAction);
-				getFeature('rogue',rogue.expertise);
-				getFeature('rogue',rogue.sneakAttack);
-				getFeature('rogue',rogue.steadyAim);
-				getFeature('rogue',rogue.subclass,"Soulknife");
-				getFeature('rogue',rogue.thievesCant);
-				getFeature('rogue',rogue.weaponMastery,"Shortbow, Shortsword");
+				getTitle('cleric','Cleric');
+				getFeature('cleric',cleric.channelDivinity);
+				getFeature('cleric',cleric.divineOrder,'Thaumaturge');
+				getFeature('cleric',cleric.spellcasting,["Light, Thaumaturgy, Toll the Dead","Cure Wounds, Guiding Bolt, Shield of Faith","Find Traps, Blindness/Deafness, Prayer of Healing"]);
+				getFeature('cleric',cleric.subclass,"Knowledge Domain");
 				
-				getTitle('rogueSubclass','Rogue: Soulknife');
-				getFeature('rogueSubclass',rogueSubclass.psionicBlades);
-				getFeature('rogueSubclass',rogueSubclass.psionicPower);
+				getTitle('clericSubclass','Cleric: Knowledge Domain');
+				getFeature('clericSubclass',clericSubclass.blessingsOfKnowledge,["tool","skill","expertise"]);
+				getFeature('clericSubclass',clericSubclass.knowledgeDomainSpells);
+				getFeature('clericSubclass',clericSubclass.mindMagic);
 			</script>
 		</div>
 	</body>
