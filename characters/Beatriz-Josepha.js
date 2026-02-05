@@ -14,7 +14,7 @@ const character = {
 		"type":"light",
 		"bonus":0
 	},
-	"hitPoints":28,
+	"hitPoints":42,
 	"ability": {
 		"strength": 10,
 		"dexterity": 14,

@@ -1,6 +1,7 @@
 const character = {
 	"name": "Elanis, Light of the moon",
 	"specie": "Elf (High-Elf)",
+	"size":"Medium",
 	"background": "Criminal",
 	"class": [
 		{"name":"Rogue", "level":3, "subclass":"Soulknife"}
@@ -13,7 +14,7 @@ const character = {
 		"type":"light",
 		"bonus":0
 	},
-	"hitPoints":20,
+	"hitPoints":30,
 	"ability": {
 		"strength": 8,
 		"dexterity": 16,

@@ -1,6 +1,7 @@
 const character = {
 	"name": "Elora",
 	"specie": "Elf (Drow)",
+	"size":"Medium",
 	"background": "Hermit",
 	"class": [
 		{"name":"Cleric", "level":3, "subclass":"Knowledge Domain"}
@@ -13,7 +14,7 @@ const character = {
 		"type":"medium",
 		"bonus":0
 	},
-	"hitPoints":20,
+	"hitPoints":30,
 	"ability": {
 		"strength": 13,
 		"dexterity": 14,
