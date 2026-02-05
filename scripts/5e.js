@@ -42,8 +42,12 @@ function loadCharacter() {
 			case "Cleric":
 				hitDice8 += character.class[i].level;
 				break;
+			case "Ranger":
+				hitDice10 += character.class[i].level;
+				break;
 			case "Rogue":
 				hitDice8 += character.class[i].level;
+				break;
 		}
 	}
 	if(hitDice6>0){
@@ -217,6 +221,9 @@ function loadCharacter() {
 		switch (character.class[i].name){
 			case 'Cleric':
 				spellcastingLevel+=1*character.class[i].level;
+				break;
+			case 'Ranger':
+				spellcastingLevel+=0.5*character.class[i].level;
 				break;
 		}
 	}
@@ -398,7 +405,7 @@ function loadCharacter() {
 	//Load character info
 	document.getElementById('characterName').innerHTML = character.name;
 	document.getElementById('characterLevel').innerHTML = level;
-	document.getElementById('characterSpecie').innerHTML = character.specie;
+	document.getElementById('characterSpecie').innerHTML = character.specie + ' <small style="font-weight:normal"><i>' + character.size + '</i></small>';
 	document.getElementById('characterBackground').innerHTML = character.background;
 	document.getElementById('characterProficiency').innerHTML = '+' + proficiencyBonus;
 	document.getElementById('characterClass').innerHTML = classList;
@@ -576,6 +583,23 @@ function getAction(target,type,item,extra){
 			
 			itemDiv.appendChild(itemContent);
 			break;
+		case 'item':
+			for(let i = 0; i < item.info.length; i++){
+				var itemInfo = document.createElement('p');
+				itemInfo.classList.add('action-info');
+				itemInfo.innerHTML = item.info[i];
+				itemContent.appendChild(itemInfo);
+			}
+			if(item.infoExtra){
+				for(let i = 0; i < item.infoExtra.length; i++){
+					var itemInfoExtra = document.createElement('p');
+					itemInfoExtra.classList.add('action-infoExtra','text-box');
+					itemInfoExtra.innerHTML = item.infoExtra[i];
+					itemContent.appendChild(itemInfoExtra);
+				}
+			}
+			itemDiv.appendChild(itemContent);
+			break;
 		case 'spell':
 			if(extra=='Intelligence' || extra=='Wisdom' || extra=='Charisma' || extra=='Any'){
 				var itemCastTime = document.createElement('p');
@@ -668,7 +692,10 @@ function getAction(target,type,item,extra){
 	if(type=='weapon' && item.type.includes('Melee Weapon')){type='weapon-melee'};
 	if(type=='weapon' && item.type.includes('Ranged Weapon')){type='weapon-ranged'};
 	if(type=='item' && item.type.includes('Adventuring Gear')){type='adventureGear'};
+	if(type=='item' && item.type.includes('Artisan Tools')){type='tools'};
+	if(type=='item' && item.type.includes('Other Tools')){type='tools'};
 	if(extra=='cleric'){type='cleric'};
+	if(extra=='ranger'){type='ranger'};
 	if(extra=='rogue'){type='rogue'};
 	itemIcon.classList.add('action-icon','icon-'+type,'icon-'+target);
 	itemDiv.appendChild(itemIcon);
@@ -697,6 +724,7 @@ function getInventory(type,quantaty,item,extra,equiped){
 		if(item.type == 'Shield'){inventoryIcon='shield'}
 		if(item.type == 'Ammunition'){inventoryIcon='ammunition'}
 		if(item.type == 'Adventuring Gear'){inventoryIcon='adventureGear'}
+		if(item.type == 'Artisan Tools' || item.type == 'Other Tools'){inventoryIcon='tools'}
 		if(item.type == 'Scroll'){inventoryIcon='scroll'}
 		if(item.name.includes('Necklace')){inventoryIcon='necklace'}
 		itemIcon.classList.add('inventory-icon','icon-'+inventoryIcon);
@@ -755,10 +783,12 @@ function getInventory(type,quantaty,item,extra,equiped){
 			itemDiv.appendChild(itemContent);
 			break;
 		case 'item': 
-			var itemInfo = document.createElement('p');
-			itemInfo.classList.add('inventory-info');
-			itemInfo.innerHTML = item.info;
-			itemContent.appendChild(itemInfo);
+			for(let i=0; i<item.info.length; i++){
+				var itemInfo = document.createElement('p');
+				itemInfo.classList.add('inventory-info');
+				itemInfo.innerHTML = item.info[i];
+				itemContent.appendChild(itemInfo);
+			}
 			
 			itemDiv.appendChild(itemContent);
 			break;

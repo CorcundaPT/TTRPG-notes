@@ -99,6 +99,19 @@ const spell = {
 		],
 		"upgrade":""
 	},
+	"ensnaringStrike": {
+		"name":"Ensnaring Strike",
+		"type":"1st Level Spell: Conjuration",
+		"castTime":"Bonus Action, which you take immediately after hitting a creature with a weapon",
+		"range":"Self",
+		"components":"V",
+		"duration":"Concentration, up to 1 minute",
+		"info":[
+			"As you hit the target, grasping vines appear on it, and it makes a Strength saving throw. A Large or larger creature has Advantage on this save. On a failed save, the target has the Restrained condition until the spell ends. On a successful save, the vines shrivel away, and the spell ends.",
+			"While Restrained, the target takes 1d6 Piercing damage at the start of each of its turns. The target or a creature within reach of it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the spell ends."
+		],
+		"upgrade":"The damage increases by 1d6 for each spell slot level above 1."
+	},
 	"faerieFire": {
 		"name":"Faerie Fire",
 		"type":"1st Level Spell: Evocation",
@@ -172,6 +185,19 @@ const spell = {
 			"A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier."
 		],
 		"upgrade":"The healing increases by 2d4 for each spell slot level above 1."
+	},
+	"huntersMark": {
+		"name":"Hunter's Mark",
+		"type":"1st Level Spell: Divination",
+		"castTime":"Bonus Action",
+		"range":"90ft",
+		"components":"V",
+		"duration":"Concentration, up to 1 hour",
+		"info":[
+			"You magically mark one creature you can see within range as your quarry. Until the spell ends, you deal an extra 1d6 Force damage to the target whenever you hit it with an attack roll. You also have Advantage on any Wisdom (Perception or Survival) check you make to find it.",
+			"If the target drops to 0 Hit Points before this spell ends, you can take a Bonus Action to move the mark to a new creature you can see within range."
+		],
+		"upgrade":"Your Concentration can last longer with a spell slot of level 3&dash;4 (up to 8 hours) or 5+ (up to 24 hours)."
 	},
 	"identify": {
 		"name":"Identify",
@@ -247,6 +273,19 @@ const spell = {
 		"duration":"Concentration, up to 1 minute",
 		"info":[
 			"You touch a willing creature and choose a damage type: Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Piercing, Poison, Radiant, Slashing, or Thunder. When the creature takes damage of the chosen type before the spell ends, the creature reduces the total damage taken by 1d4. A creature can benefit from this spell only once per turn."
+		],
+		"upgrade":""
+	},
+	"speakWithAnimals": {
+		"name":"Speak With Animals",
+		"type":"1st Level Spell: Divination",
+		"castTime":"Bonus Action or Ritual",
+		"range":"Self",
+		"components":"V,S",
+		"duration":"10 minutes",
+		"info":[
+			"For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action&apos;s skill options with them.",
+			"Most Beasts have little to say about topics that don&apos;t pertain to survival or companionship, but at minimum, a Beast can give you information about nearby locations and monsters, including whatever it has perceived within the past day."
 		],
 		"upgrade":""
 	},

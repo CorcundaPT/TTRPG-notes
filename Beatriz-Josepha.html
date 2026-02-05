@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Josepha</title>
+		<link rel="icon" type="image/x-icon" href="img/webIcon.png">
+	</head>
+	<!--classes-->
+	<link rel="stylesheet" href="styles/5e.css">
+	
+	<!--scripts-->
+	<script src="scripts/main.js"></script>
+	<script src="scripts/5e.js"></script>
+	
+	<!--data-->
+	<script src="data/feats.js"></script>
+	<script src="data/weapons.js"></script>
+	<script src="data/armors.js"></script>
+	<script src="data/items.js"></script>
+	<script src="data/spells.js"></script>
+	
+	<!--character-->
+	<script src="characters/Beatriz-Josepha.js"></script>
+	<script src="data/halfling.js"></script>
+	<script src="data/farmer.js"></script>
+	<script src="data/ranger.js"></script>
+	<script src="data/ranger-.js"></script>
+	
+	<body onload="loadCharacter()">
+		<!--Character Info-->
+		<div class="text-box">
+			<p  id="characterName" class="character-name">Error Loading...</p>
+			<div class="character-info-tab">
+				<p class="character-info"><i>Level:</i> <b id="characterLevel">-</b></p>
+				<p class="character-info"><i>Specie:</i> <b id="characterSpecie">-</b></p>
+				<p class="character-info"><i>Background:</i> <b id="characterBackground">-</b></p>
+				<p class="character-info"><i>Proficiency Bonus:</i> <b id="characterProficiency">-</b></p>
+				<p class="character-info" style="grid-column:span 2;"><i>Class:</i> <b id="characterClass">-</b></p>
+			</div>
+		</div>
+		
+		<!--Chacter Stats-->
+		<div class="stats-tab">
+			<div class="stats-box text-box">
+				<p class="stats-name">Speed</p>
+				<p id="speed" class="stats-value text-box">0ft</p>
+			</div>
+			<div class="stats-box text-box">
+				<p class="stats-name">Initiative</p>
+				<p id="iniciative" class="stats-value text-box">+0</p>
+			</div>
+			<div id="hitDice" class="stats-box text-box"  style="grid-row:span 2;">
+				<p class="stats-name">Hit Dice</p>
+			</div>
+			<div class="stats-box text-box">
+				<p class="stats-name">Armor Class</p>
+				<p id="armorClass" class="stats-value text-box">0</p>
+			</div>
+			<div class="stats-box text-box">
+				<p class="stats-name">Hit Points</p>
+				<p id="hitPoints" class="stats-value text-box">0</p>
+			</div>
+		</div>
+		
+		<!--Character Ability Score-->
+		<div class="ability-tab">
+			<div class="ability-box ability-strength">
+				<p class="ability-name">Strength</p>
+				<p id="strengthModifier" class="ability-modifier text-box">+0</p>
+				<p id="strengthScore" class="ability-score">00</p>
+			</div>
+			<div class="ability-box ability-dexterity">
+				<p class="ability-name">Dexterity</p>
+				<p id="dexterityModifier" class="ability-modifier text-box">+0</p>
+				<p id="dexterityScore" class="ability-score">00</p>
+			</div>
+			<div class="ability-box ability-constitution">
+				<p class="ability-name">Constitution</p>
+				<p id="constitutionModifier" class="ability-modifier text-box">+0</p>
+				<p id="constitutionScore" class="ability-score">00</p>
+			</div>
+			<div class="ability-box ability-intelligence">
+				<p class="ability-name">Intelligence</p>
+				<p id="intelligenceModifier" class="ability-modifier text-box">+0</p>
+				<p id="intelligenceScore" class="ability-score">00</p>
+			</div>
+			<div class="ability-box ability-wisdom">
+				<p class="ability-name">Wisdom</p>
+				<p id="wisdomModifier" class="ability-modifier text-box">+0</p>
+				<p id="wisdomScore" class="ability-score">00</p>
+			</div>
+			<div class="ability-box ability-charisma">
+				<p class="ability-name">Charisma</p>
+				<p id="charismaModifier" class="ability-modifier text-box">+0</p>
+				<p id="charismaScore" class="ability-score">00</p>
+			</div>
+		</div>
+		
+		<!--Botoes para mudar de tabs-->
+		<div class="button-box">
+			<input id="skillsButton" type="button" onclick="switchTabs('skills')" value="Proficiencies" class="button-tab button-tab-active">
+			<input id="actionsButton" type="button" onclick="switchTabs('actions')" value="Actions" class="button-tab">
+			<input id="backpackButton" type="button" onclick="switchTabs('backpack')" value="Inventory" class="button-tab">
+			<input id="characterButton" type="button" onclick="switchTabs('character')" value="Character" class="button-tab">
+		</div>
+		
+		<!--Proficiency Tab-->
+		<div id="skills" style="display:block">
+			<p class="title-tab">Skills</p>
+			
+			<!--Strength Skills-->
+			<div class="ability-strength skill-box">
+				<p class="skill-tab-name">Strength</p>
+				<div class="save-item text-box">
+					<p id="strengthSave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="strengthAthletics" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Athletics</p>
+				</div>
+			</div>
+			
+			<!--Dexterity Skills-->
+			<div class="ability-dexterity skill-box">
+				<p class="skill-tab-name">Dexterity</p>
+				<div class="save-item text-box">
+					<p id="dexteritySave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="dexterityAcrobatics" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Acrobatics</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="dexteritySleightOfHand" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Sleight of Hand</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="dexterityStealth" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Stealth</p>
+				</div>
+			</div>
+			
+			<!--Constitution Skills-->
+			<div class="ability-constitution skill-box">
+				<p class="skill-tab-name">Constitution</p>
+				<div class="save-item text-box">
+					<p id="constitutionSave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+			</div>
+			
+			<!--Intelligence Skills-->
+			<div class="ability-intelligence skill-box">
+				<p class="skill-tab-name">Intelligence</p>
+				<div class="save-item text-box">
+					<p id="intelligenceSave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="intelligenceArcana"  class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Arcana</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="intelligenceHistory" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">History</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="intelligenceInvestigation" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Investigation</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="intelligenceNature" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Nature</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="intelligenceReligion" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Religion</p>
+				</div>
+			</div>
+			
+			<!--Wisdom Skills-->
+			<div class="ability-wisdom skill-box">
+				<p class="skill-tab-name">Wisdom</p>
+				<div class="save-item text-box">
+					<p id="wisdomSave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="wisdomAnimalHandling" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Animal Handling</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="wisdomInsight" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Insight</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="wisdomMedicine" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Medicine</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="wisdomPerception" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Perception</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="wisdomSurvival" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Survival</p>
+				</div>
+			</div>
+			
+			<!--Charisma Skills-->
+			<div class="ability-charisma skill-box">
+				<p class="skill-tab-name">Charisma</p>
+				<div class="save-item text-box">
+					<p id="charismaSave" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Saving Throw</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="charismaDeception" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Deception</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="charismaIntimidation" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Intimidation</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="charismaPerformance" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Performance</p>
+				</div>
+				<div class="skill-item text-box">
+					<p id="charismaPersuasion" class="skill-bonus text-box">+0</p>
+					<p class="skill-name">Persuasion</p>
+				</div>
+			</div>
+			
+			<p class="title-tab">Proficiency</p>
+			<div>
+				<p class="proficiency-item text-box"><i>Weapons:</i> <b id="proficiencyWeapons">-</b></p>
+				<p class="proficiency-item text-box"><i>Armor:</i> <b id="proficiencyArmors">-</b></p>
+				<p class="proficiency-item text-box"><i>Tools:</i> <b id="proficiencyTools">-</b></p>
+				<p class="proficiency-item text-box"><i>Senses:</i> <b id="proficiencySenses">-</b></p>
+				<p class="proficiency-item text-box"><i>Language:</i> <b id="proficiencyLanguages">-</b></p>
+				<p class="proficiency-item text-box"><i>Saves:</i> <b id="proficiencySaves">-</b></p>
+				<p class="proficiency-item text-box"><i>Skills:</i> <b id="proficiencySkills">-</b></p>
+				<p id="proficiencyExpertiseBox" class="proficiency-item text-box" style="display:none"><i>Expertise:</i> <b id="proficiencyExpertise">-</b></p>
+			</div>
+		</div>
+		
+		<!--Actions Tab-->
+		<div id="actions" style="display:none">
+			<p id="spellslotsTab" class="title-tab" style="display:none">Spellslots</p>
+			<div class="spellslots text-box">
+				<div id="spellslot1Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">1st</p>
+					<p id="spellslot1" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot2Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">2nd</p>
+					<p id="spellslot2" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot3Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">3rd</p>
+					<p id="spellslot3" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot4Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">4th</p>
+					<p id="spellslot4" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot5Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">5th</p>
+					<p id="spellslot5" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot6Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">6th</p>
+					<p id="spellslot6" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot7Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">7th</p>
+					<p id="spellslot7" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot8Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">8th</p>
+					<p id="spellslot8" class="spellslots-left text-box">0</p>
+				</div>
+				<div id="spellslot9Box" class="spellslots-box" style="display:none">
+					<p class="spellslots-level">9th</p>
+					<p id="spellslot9" class="spellslots-left text-box">0</p>
+				</div>
+			</div>
+			<p id="spellAbilityTab" class="title-tab" onclick="toggleSpellcasting()" style="display:block">Spellcasting Ability</p>
+			<div class="spellAbility">
+				<div id="spellAbilityIntelligence" class="spellAbility-box text-box" style="display:none">
+					<p class="spellAbility-name">Ability</p>
+					<p class="spellAbility-unit text-box">Intelligence</p>
+					<p class="spellAbility-name">Spell DC</p>
+					<p id="spellDcIntelligence" class="spellAbility-unit text-box">0</p>
+					<p class="spellAbility-name">Attack Bonus</p>
+					<p id="spellAttackIntelligence" class="spellAbility-unit text-box">+0</p>
+				</div>
+				<div id="spellAbilityWisdom" class="spellAbility-box text-box" style="display:none">
+					<p class="spellAbility-name">Ability</p>
+					<p class="spellAbility-unit text-box">Wisdom</p>
+					<p class="spellAbility-name">Spell DC</p>
+					<p id="spellDcWisdom" class="spellAbility-unit text-box">0</p>
+					<p class="spellAbility-name">Attack Bonus</p>
+					<p id="spellAttackWisdom" class="spellAbility-unit text-box">+0</p>
+				</div>
+				<div id="spellAbilityCharisma" class="spellAbility-box text-box" style="display:none">
+					<p class="spellAbility-name">Ability</p>
+					<p class="spellAbility-unit text-box">Charisma</p>
+					<p class="spellAbility-name">Spell DC</p>
+					<p id="spellDcCharisma" class="spellAbility-unit text-box">0</p>
+					<p class="spellAbility-name">Attack Bonus</p>
+					<p id="spellAttackCharisma" class="spellAbility-unit text-box">+0</p>
+				</div>
+			</div>
+			<p id="passiveTitle" class="title-tab" style="display:none">Passive</p>
+			<!--ordem das action: Specie, Background, Weapons, Items, Feats, Class, Spells-->
+			<div id="passive" class="actions-tab"></div>
+				<!--[target, type, data.item, selected, extra]-->
+				<script>
+					//Specie
+					getAction('passive','specie',specie.brave);
+					getAction('passive','specie',specie.halflingNimbleness);
+					getAction('passive','specie',specie.luck);
+					//Class
+					getAction('passive','class',ranger.archery,'ranger');
+				</script>
+			<p id="actionTitle" class="title-tab" style="display:none">Action</p>
+			<div id="action" class="actions-tab"></div>
+				<!--[target, type, data.item, extra]-->
+				<script>
+					//Specie
+					getAction('action','specie',specie.naturallyStealthy);
+					//Weapon
+					getAction('action','weapon',weapon.longbow,1);
+					getAction('action','weapon',weapon.scimitar,1);
+					//Items
+					getAction('action','item',item.bagOfWasps);
+					getAction('action','item',item.carpentersTools);
+					getAction('action','item',item.herbalismKit);
+					//Class
+					getAction('action','class',ranger.mainFocus,'ranger');
+					getAction('action','class',ranger.spiritCompanion,'ranger');
+					//1st Level
+					getAction('action','spell',spell.cureWounds,'Wisdom');
+					getAction('action','spell',spell.ensnaringStrike,'Wisdom');
+					getAction('action','spell',spell.huntersMark,'Wisdom');
+					getAction('action','spell',spell.speakWithAnimals,'Wisdom');
+				</script>
+			<p id="bonusActionTitle" class="title-tab" style="display:none">Bonus Action</p>
+			<div id="bonusAction" class="actions-tab"></div>
+				<!--[target, type, data.item, selected, extra]-->
+				<script>
+				</script>
+			<p id="castTimeTitle" class="title-tab" style="display:none">Time to cast</p>
+			<div id="castTime" class="actions-tab"></div>
+				<!--[target, type, data.item, selected, extra]-->
+				<script>
+				</script>
+			<p id="reactionTitle" class="title-tab" style="display:none">Reaction</p>
+			<div id="reaction" class="actions-tab"></div>
+				<!--[target, type, data.item, selected, extra]-->
+				<script>
+				</script>
+		</div>
+		
+		<!--Inventory Tab-->
+		<div id="backpack" style="display:none">
+			<p class="title-tab">Coins</p>
+			<div class="coin">
+				<div class="coin-box text-box">
+					<p class="coin-name">Copper</p>
+					<p class="coin-conversion">100 Copper = 1 Gold</p>
+					<p id="copper" class="coin-unit text-box">0</p>
+				</div>
+				<div class="coin-box text-box">
+					<p class="coin-name">Silver</p>
+					<p class="coin-conversion">10 Silver = 1 Gold</p>
+					<p id="silver" class="coin-unit text-box">0</p>
+				</div>
+				<div class="coin-box text-box">
+					<p class="coin-name">Gold</p>
+					<p id="gold" class="coin-unit text-box">0</p>
+				</div>
+			</div>
+			<p class="title-tab">Inventory</p>
+			<div id="inventory" class="inventory";>
+				<!--[type,quantaty,item,extra,equiped]-->
+				<script>
+					getInventory('item','&infin;',item.arrow);
+					getInventory('item',2,item.bagOfWasps);
+					getInventory('item',1,item.carpentersTools);
+					getInventory('item',1,item.herbalismKit);
+					getInventory('weapon',1,weapon.longbow,1);
+					getInventory('weapon',1,weapon.scimitar,1);
+					getInventory('item',1,item.sprigOfMistletoe);
+					getInventory('armor',1,armor.studdedLeatherArmor,0,1);
+				</script>
+			</div>
+		</div>
+		
+		<!--Character Tab-->
+		<div id="character" style="display:none">
+			<script>
+				<!--title: [div ID,name]-->
+				<!--items: [type,item,selected]-->
+				getTitle('specie',specieName);
+				getFeature('specie',specie.brave);
+				getFeature('specie',specie.halflingNimbleness);
+				getFeature('specie',specie.luck);
+				getFeature('specie',specie.naturallyStealthy);
+				
+				getTitle('background',backgroundName);
+				getFeature('background',background.abilityScoreImprovement,"+1 Constitution, +2 Wisdom");
+				getFeature('background',feat.tough);
+				getFeature('background',background.skillProficiency);
+				getFeature('background',background.toolProficiency);
+				
+				getTitle('ranger','Ranger');
+				getFeature('ranger',ranger.deftExplorer);
+				getFeature('ranger',ranger.fightingStyle);
+				getFeature('ranger',ranger.rangerInstinct);
+				getFeature('ranger',ranger.spellcasting,[0,"Cure Wounds, Ensnaring Strike, Speak with Animals"]);
+				getFeature('ranger',ranger.subclass);
+				getFeature('ranger',ranger.weaponMastery);
+				
+				getTitle('rangerSubclass','Ranger: ???');
+			</script>
+		</div>
+	</body>
+</html>

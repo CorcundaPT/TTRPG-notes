@@ -32,5 +32,12 @@ const feat = {
 		"info":[
 			"Whenever you roll a die to determine the number of Hit Points you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and use the new roll."
 		]
+	},
+	"tough": {
+		"name":"Tough",
+		"type":"Feat",
+		"info":[
+			"Your Hit Point maximum increases by an amount equal to twice your character level."
+		]
 	}
 }

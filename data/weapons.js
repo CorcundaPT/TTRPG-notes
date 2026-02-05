@@ -19,6 +19,16 @@ const weapon = {
 			"info":" If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
 		}
 	},
+	"scimitar": {
+		"name":"Scimitar",
+		"type":"Martial Melee Weapon",
+		"damage":"1d6 Slashin Damage",
+		"properties":"Finesse, Light",
+		"mastery":{
+			"name":"Nick",
+			"info":" When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+		}
+	},
 	"shortbow": {
 		"name":"Shortbow",
 		"type":"Simple Ranged Weapon",
