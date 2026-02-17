@@ -23,7 +23,7 @@ const character = {
 		"wisdom": 14,
 		"charisma": 8
 	},
-	"spellcasting":"none",
+	"spellcasting":"Wisdom",
 	"save": {
 		"strength":		{"proficiency": 1, "bonus": 0},
 		"dexterity":	{"proficiency": 1, "bonus": 0},
@@ -68,4 +68,5 @@ const character = {
 		"silver":0,
 		"gold":4
 	}
+
 }
