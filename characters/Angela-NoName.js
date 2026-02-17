@@ -14,7 +14,7 @@ const character = {
 		"type":"medium",
 		"bonus":0
 	},
-	"hitPoints":42,
+	"hitPoints":36,
 	"ability": {
 		"strength": 16,
 		"dexterity": 14,
