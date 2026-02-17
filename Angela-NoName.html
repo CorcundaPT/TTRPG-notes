@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Josepha</title>
+		<title>NoName</title>
 		<link rel="icon" type="image/x-icon" href="img/webIcon.png">
 	</head>
 	<!--classes-->
@@ -19,10 +19,10 @@
 	<script src="data/spells.js"></script>
 	
 	<!--character-->
-	<script src="characters/Beatriz-Josepha.js"></script>
-	<script src="data/halfling.js"></script>
-	<script src="data/farmer.js"></script>
-	<script src="data/ranger.js"></script>
+	<script src="characters/Angela-NoName.js"></script>
+	<script src="data/aasimar.js"></script>
+	<script src="data/noble.js"></script>
+	<script src="data/fighter.js"></script>
 	<script src="data/ranger-.js"></script>
 	
 	<body onload="loadCharacter()">
@@ -320,38 +320,37 @@
 				<!--[target, type, data.item, selected, extra]-->
 				<script>
 					//Specie
-					getAction('passive','specie',specie.brave);
-					getAction('passive','specie',specie.halflingNimbleness);
-					getAction('passive','specie',specie.luck);
+					getAction('passive','specie',specie.celestialResistance);
+					getAction('passive','specie',specie.darkvision);
 					//Class
-					getAction('passive','class',feat.fightingArchery,'ranger');
+					getAction('passive','class',fighter.actionSurge,'fighter');
+					getAction('passive','class',feat.fightingGreatWeapon,'fighter');
+					getAction('passive','class',fighter.tacticalMind,'fighter');
 				</script>
 			<p id="actionTitle" class="title-tab" style="display:none">Action</p>
 			<div id="action" class="actions-tab"></div>
 				<!--[target, type, data.item, extra]-->
 				<script>
 					//Specie
-					getAction('action','specie',specie.naturallyStealthy);
+					getAction('action','specie',specie.heavenlyWings);
+					getAction('action','specie',specie.innerRadiance);
+					getAction('action','specie',specie.necroticShroud);
+					getAction('action','specie',specie.healingHands);
 					//Weapon
-					getAction('action','weapon',weapon.longbow,1);
-					getAction('action','weapon',weapon.scimitar,1);
+					getAction('action','weapon',weapon.dagger,1);
+					getAction('action','weapon',weapon.greatsword,1);
 					//Items
-					getAction('action','item',item.bagOfWasps);
-					getAction('action','item',item.carpentersTools);
-					getAction('action','item',item.herbalismKit);
-					//Class
-					getAction('action','class',ranger.mainFocus,'ranger');
-					getAction('action','class',ranger.spiritCompanion,'ranger');
+					getAction('action','item',item.potionOfHealing);
+					getAction('action','item',item.strangePotion);
 					//1st Level
-					getAction('action','spell',spell.cureWounds,'Wisdom');
-					getAction('action','spell',spell.ensnaringStrike,'Wisdom');
-					getAction('action','spell',spell.huntersMark,'Wisdom');
-					getAction('action','spell',spell.speakWithAnimals,'Wisdom');
+					getAction('action','spell',spell.light,'Charisma');
 				</script>
 			<p id="bonusActionTitle" class="title-tab" style="display:none">Bonus Action</p>
 			<div id="bonusAction" class="actions-tab"></div>
 				<!--[target, type, data.item, selected, extra]-->
 				<script>
+					//Class
+					getAction('bonusAction','class',fighter.secondWind,'fighter');
 				</script>
 			<p id="castTimeTitle" class="title-tab" style="display:none">Time to cast</p>
 			<div id="castTime" class="actions-tab"></div>
@@ -388,14 +387,12 @@
 			<div id="inventory" class="inventory";>
 				<!--[type,quantaty,item,extra,equiped]-->
 				<script>
-					getInventory('item','&infin;',item.arrow);
-					getInventory('item',2,item.bagOfWasps);
-					getInventory('item',1,item.carpentersTools);
-					getInventory('item',1,item.herbalismKit);
-					getInventory('weapon',1,weapon.longbow,1);
-					getInventory('weapon',1,weapon.scimitar,1);
-					getInventory('item',1,item.sprigOfMistletoe);
-					getInventory('armor',1,armor.studdedLeatherArmor,0,1);
+					getInventory('item',1,item.arrowFire);
+					getInventory('armor',1,armor.chainMail,0,1);
+					getInventory('weapon',5,weapon.dagger,1);
+					getInventory('weapon',1,weapon.greatsword,1);
+					getInventory('item',1,item.potionOfHealing);
+					getInventory('item',1,item.strangePotion);
 				</script>
 			</div>
 		</div>
@@ -406,26 +403,27 @@
 				<!--title: [div ID,name]-->
 				<!--items: [type,item,selected]-->
 				getTitle('specie',specieName);
-				getFeature('specie',specie.brave);
-				getFeature('specie',specie.halflingNimbleness);
-				getFeature('specie',specie.luck);
-				getFeature('specie',specie.naturallyStealthy);
+				getFeature('specie',specie.celestialResistance);
+				getFeature('specie',specie.celestialRevelation);
+				getFeature('specie',specie.darkvision);
+				getFeature('specie',specie.healingHands);
+				getFeature('specie',specie.lightBearer);
 				
 				getTitle('background',backgroundName);
-				getFeature('background',background.abilityScoreImprovement,"+1 Constitution, +2 Wisdom");
-				getFeature('background',feat.tough);
+				getFeature('background',background.abilityScoreImprovement,"+1 Strength, +2 Charisma");
+				getFeature('background',feat.skilled,"Insight, Perception, Stealth");
 				getFeature('background',background.skillProficiency);
 				getFeature('background',background.toolProficiency);
 				
-				getTitle('ranger','Ranger');
-				getFeature('ranger',ranger.deftExplorer);
-				getFeature('ranger',ranger.fightingStyle);
-				getFeature('ranger',ranger.rangerInstinct);
-				getFeature('ranger',ranger.spellcasting,[0,"Cure Wounds, Ensnaring Strike, Speak with Animals"]);
-				getFeature('ranger',ranger.subclass);
-				getFeature('ranger',ranger.weaponMastery);
+				getTitle('fighter','Fighter');
+				getFeature('fighter',fighter.actionSurge);
+				getFeature('fighter',fighter.fightingStyle,"Great Weapon Fighting");
+				getFeature('fighter',fighter.secondWind);
+				getFeature('fighter',fighter.tacticalMind);
+				getFeature('fighter',fighter.weaponMastery,"Dagger, Greatsword, +1");
+				getFeature('fighter',fighter.subclass,"waiting...");
 				
-				getTitle('rangerSubclass','Ranger: ???');
+				getTitle('fighterSubclass','Fighter: ???');
 			</script>
 		</div>
 	</body>

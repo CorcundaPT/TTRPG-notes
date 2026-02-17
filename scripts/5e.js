@@ -42,6 +42,9 @@ function loadCharacter() {
 			case "Cleric":
 				hitDice8 += character.class[i].level;
 				break;
+			case "Fighter":
+				hitDice10 += character.class[i].level;
+				break;
 			case "Ranger":
 				hitDice10 += character.class[i].level;
 				break;
@@ -692,9 +695,11 @@ function getAction(target,type,item,extra){
 	if(type=='weapon' && item.type.includes('Melee Weapon')){type='weapon-melee'};
 	if(type=='weapon' && item.type.includes('Ranged Weapon')){type='weapon-ranged'};
 	if(type=='item' && item.type.includes('Adventuring Gear')){type='adventureGear'};
+	if(type=='item' && item.type.includes('Potion')){type='potion'};
 	if(type=='item' && item.type.includes('Artisan Tools')){type='tools'};
 	if(type=='item' && item.type.includes('Other Tools')){type='tools'};
 	if(extra=='cleric'){type='cleric'};
+	if(extra=='fighter'){type='fighter'};
 	if(extra=='ranger'){type='ranger'};
 	if(extra=='rogue'){type='rogue'};
 	itemIcon.classList.add('action-icon','icon-'+type,'icon-'+target);
@@ -724,6 +729,7 @@ function getInventory(type,quantaty,item,extra,equiped){
 		if(item.type == 'Shield'){inventoryIcon='shield'}
 		if(item.type == 'Ammunition'){inventoryIcon='ammunition'}
 		if(item.type == 'Adventuring Gear'){inventoryIcon='adventureGear'}
+		if(item.type == 'Potion'){inventoryIcon='potion'}
 		if(item.type == 'Artisan Tools' || item.type == 'Other Tools'){inventoryIcon='tools'}
 		if(item.type == 'Scroll'){inventoryIcon='scroll'}
 		if(item.name.includes('Necklace')){inventoryIcon='necklace'}

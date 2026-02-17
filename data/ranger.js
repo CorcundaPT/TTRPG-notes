@@ -20,13 +20,6 @@ const ranger = {
 			"<b class='infoBold'>Druidic Warrior:</b> You learn two Druid cantrips of your choice (See the Druid class's section for a list of Druid spells). Guidance and Starry Wisp are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another Druid cantrip."
 		]
 	},
-	"archery": {
-		"name":"Fightin Style: Archery",
-		"type":"Ranger Feature",
-		"info":[
-			"You gain a +2 bonus to attack rolls you make with Ranged weapons."
-		]
-	},
 	"rangerInstinct": {
 		"name":"Ranger Instinct",
 		"type":"Ranger Feature",

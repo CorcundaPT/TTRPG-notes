@@ -1,4 +1,24 @@
 const weapon = {
+	"dagger": {
+		"name":"Dagger",
+		"type":"Simple Melee Weapon",
+		"damage":"1d4 Slashing Damage",
+		"properties":"Finesse, Light, Thrown(20/60ft)",
+		"mastery":{
+			"name":"Nick",
+			"info":" When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+		}
+	},
+	"greatsword": {
+		"name":"Greatsword",
+		"type":"Martial Melee Weapon",
+		"damage":"2d6 Slashing Damage",
+		"properties":"Heavy, Two-Handed",
+		"mastery":{
+			"name":"Graze",
+			"info":" If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."
+		}
+	},
 	"longbow": {
 		"name":"Longbow",
 		"type":"Martial Ranged Weapon",

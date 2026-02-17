@@ -542,6 +542,11 @@ div{
 	background-repeat:no-repeat;
 	background-size:100%;
 }
+.icon-potion{
+	background:url('../img/potion.png');
+	background-repeat:no-repeat;
+	background-size:100%;
+}
 .icon-tools{
 	background:url('../img/tools.png');
 	background-repeat:no-repeat;
@@ -559,6 +564,11 @@ div{
 }
 .icon-cleric{
 	background:url('../img/cleric.png');
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+.icon-fighter{
+	background:url('../img/fighter.png');
 	background-repeat:no-repeat;
 	background-size:100%;
 }

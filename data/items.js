@@ -48,6 +48,13 @@ const item = {
 		"type":"Wondrous Item",
 		"info":["A necklace with an embedded crystal. While attuned to the necklace you can cast "," spell. "]
 	},
+	"potionOfHealing":{
+		"name":"Potion of Healing",
+		"type":"Potion",
+		"info":[
+			"This potion is a magic item. As a Bonus Action, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains 2d4 + 2 Hit Points. The potion's red liquid glimmers when agitated."
+		]
+	},
 	"scroll":{
 		"name":"Scroll of ",
 		"type":"Scroll",
@@ -58,6 +65,13 @@ const item = {
 		"type":"Adventuring Gear",
 		"info":[
 			"A Healer's Kit has ten uses. As a Utilize action, you can expend one of its uses to stabilize an Unconscious creature that has 0 Hit Points without needing to make a Wisdom (Medicine) check."
+		]
+	},
+	"strangePotion":{
+		"name":"Strange Potion",
+		"type":"Potion",
+		"info":[
+			"A veil with a weird liquid"
 		]
 	},
 }
